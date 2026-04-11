@@ -1,6 +1,7 @@
 --plugin fence
 -e yard/fence/hoist.rb
 --plugin yaml
+--plugin timekeeper
 --plugin relative_markdown_links
 --readme tmp/yard-fence/README.md
 --charset utf-8

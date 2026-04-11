@@ -71,7 +71,7 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-task default: %i[spec rubocop]
+Rake::Task[:default].enhance(%i[spec rubocop])
 
 # External gems that define tasks - add here!
 require "kettle/dev"

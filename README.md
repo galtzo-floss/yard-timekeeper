@@ -142,9 +142,54 @@ NOTE: Be prepared to track down certs for signed gems and add them the same way 
 
 ## ⚙️ Configuration
 
+Add the plugin to your `.yardopts`:
+
+```text
+--plugin timekeeper
+```
+
+`yard-timekeeper` runs after YARD generates HTML and checks git diffs for tracked
+files under `docs/`. If a file's only change is the footer line:
+
+```text
+Generated on ...
+```
+
+then the plugin restores that file from git so the docs site does not churn for
+timestamp-only changes.
+
+Notes:
+
+- It only affects files already tracked in git.
+- It is most useful for checked-in `docs/` sites.
+- Files with any real content changes keep their fresh timestamp.
+
+Environment toggles:
+
+- `YARD_TIMEKEEPER_DISABLE=true` — disable the post-process entirely
+- `YARD_TIMEKEEPER_SKIP_AT_EXIT=1` — skip registering the automatic at-exit hook
+
 ## 🔧 Basic Usage
 
-TODO: Write usage instructions here
+Generate docs as usual:
+
+```console
+bin/rake yard
+```
+
+Or via direct YARD invocation if your project uses that path:
+
+```console
+bin/yard
+```
+
+For checked-in docs, the recommended setup is:
+
+```text
+--plugin fence
+--plugin yaml
+--plugin timekeeper
+```
 
 ## 🦷 FLOSS Funding
 
