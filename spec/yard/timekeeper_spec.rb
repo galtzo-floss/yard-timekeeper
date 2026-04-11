@@ -8,7 +8,92 @@ RSpec.describe Yard::Timekeeper do
     expect(Yard::Timekeeper::VERSION).not_to be_nil
   end
 
+  describe "::enabled?" do
+    it "returns true by default" do
+      hide_env("YARD_TIMEKEEPER_DISABLE")
+
+      expect(described_class.enabled?).to be(true)
+    end
+
+    it "returns false when explicitly disabled" do
+      stub_env("YARD_TIMEKEEPER_DISABLE" => "true")
+
+      expect(described_class.enabled?).to be(false)
+    end
+  end
+
+  describe "::git_root" do
+    it "returns the stripped git root when git succeeds" do
+      status = instance_double(Process::Status, success?: true)
+      allow(Open3).to receive(:capture2)
+        .with("git", "rev-parse", "--show-toplevel", chdir: Dir.pwd)
+        .and_return(["/tmp/project\n", status])
+
+      expect(described_class.git_root).to eq("/tmp/project")
+    end
+
+    it "returns nil when git rev-parse fails" do
+      status = instance_double(Process::Status, success?: false)
+      allow(Open3).to receive(:capture2).and_return(["", status])
+
+      expect(described_class.git_root).to be_nil
+    end
+
+    it "returns nil when git is unavailable" do
+      allow(Open3).to receive(:capture2).and_raise(Errno::ENOENT)
+
+      expect(described_class.git_root).to be_nil
+    end
+  end
+
+  describe "::changed_docs_files" do
+    it "returns changed docs paths when git diff succeeds" do
+      status = instance_double(Process::Status, success?: true)
+      allow(Open3).to receive(:capture2)
+        .with("git", "diff", "--name-only", "--relative", "--", "docs", chdir: "/tmp/project")
+        .and_return(["docs/index.html\n\ndocs/classes/Foo.html\n", status])
+
+      expect(described_class.changed_docs_files("/tmp/project")).to eq(["docs/index.html", "docs/classes/Foo.html"])
+    end
+
+    it "returns an empty array when git diff fails" do
+      status = instance_double(Process::Status, success?: false)
+      allow(Open3).to receive(:capture2).and_return(["", status])
+
+      expect(described_class.changed_docs_files("/tmp/project")).to eq([])
+    end
+
+    it "returns an empty array when git is unavailable" do
+      allow(Open3).to receive(:capture2).and_raise(Errno::ENOENT)
+
+      expect(described_class.changed_docs_files("/tmp/project")).to eq([])
+    end
+  end
+
+  describe "::git_diff" do
+    it "returns stdout from git diff" do
+      status = instance_double(Process::Status, success?: true)
+      allow(Open3).to receive(:capture2)
+        .with(
+          "git",
+          "diff",
+          "--no-ext-diff",
+          "--no-color",
+          "--unified=0",
+          "--",
+          "docs/index.html",
+          chdir: "/tmp/project",
+        ).and_return(["diff output", status])
+
+      expect(described_class.git_diff("docs/index.html", "/tmp/project")).to eq("diff output")
+    end
+  end
+
   describe "::timestamp_only_diff?" do
+    it "rejects empty diffs" do
+      expect(described_class.timestamp_only_diff?(" \n")).to be(false)
+    end
+
     it "matches a diff containing only the generated-on footer timestamp change" do
       diff = <<~DIFF
         diff --git a/docs/index.html b/docs/index.html
@@ -16,6 +101,21 @@ RSpec.describe Yard::Timekeeper do
         --- a/docs/index.html
         +++ b/docs/index.html
         @@ -1166 +1166 @@
+        -  Generated on Sat Apr 11 01:22:58 2026 by
+        +  Generated on Sat Apr 11 01:23:17 2026 by
+      DIFF
+
+      expect(described_class.timestamp_only_diff?(diff)).to be(true)
+    end
+
+    it "ignores diff metadata and blank lines while checking timestamp-only changes" do
+      diff = <<~DIFF
+        diff --git a/docs/index.html b/docs/index.html
+        index abc123..def456 100644
+        --- a/docs/index.html
+        +++ b/docs/index.html
+        @@ -1166 +1166 @@
+
         -  Generated on Sat Apr 11 01:22:58 2026 by
         +  Generated on Sat Apr 11 01:23:17 2026 by
       DIFF
@@ -42,11 +142,36 @@ RSpec.describe Yard::Timekeeper do
   end
 
   describe "::postprocess_html_docs" do
+    it "returns early when timekeeper is disabled" do
+      Dir.mktmpdir do |dir|
+        stub_env("YARD_TIMEKEEPER_DISABLE" => "true")
+        allow(Dir).to receive(:pwd).and_return(dir)
+        allow(described_class).to receive(:git_root)
+
+        described_class.postprocess_html_docs
+
+        expect(described_class).not_to have_received(:git_root)
+      end
+    end
+
     it "returns early when docs directory is absent" do
       Dir.mktmpdir do |dir|
         allow(Dir).to receive(:pwd).and_return(dir)
 
         expect { described_class.postprocess_html_docs }.not_to raise_error
+      end
+    end
+
+    it "returns early when git root cannot be determined" do
+      Dir.mktmpdir do |dir|
+        FileUtils.mkdir_p(File.join(dir, "docs"))
+        allow(Dir).to receive(:pwd).and_return(dir)
+        allow(described_class).to receive(:git_root).and_return(nil)
+        allow(described_class).to receive(:changed_docs_files)
+
+        described_class.postprocess_html_docs
+
+        expect(described_class).not_to have_received(:changed_docs_files)
       end
     end
 
@@ -102,6 +227,29 @@ RSpec.describe Yard::Timekeeper do
 
       expect(described_class.restore_file("docs/index.html", "/tmp/project")).to be(true)
       expect(Open3).to have_received(:capture3).with("git", "checkout", "--", "docs/index.html", chdir: "/tmp/project")
+    end
+
+    it "returns false when git checkout fails" do
+      status = instance_double(Process::Status, success?: false)
+      allow(Open3).to receive(:capture3).and_return(["", "", status])
+
+      expect(described_class.restore_file("docs/index.html", "/tmp/project")).to be(false)
+    end
+
+    it "returns false when git is unavailable" do
+      allow(Open3).to receive(:capture3).and_raise(Errno::ENOENT)
+
+      expect(described_class.restore_file("docs/index.html", "/tmp/project")).to be(false)
+    end
+  end
+
+  describe "load-time at_exit hook" do
+    it "skips registering the at_exit hook when YARD_TIMEKEEPER_SKIP_AT_EXIT is set" do
+      stub_env("YARD_TIMEKEEPER_SKIP_AT_EXIT" => "1")
+
+      expect {
+        load File.expand_path("../../lib/yard/timekeeper.rb", __dir__), true
+      }.not_to raise_error
     end
   end
 end
