@@ -243,13 +243,13 @@ RSpec.describe Yard::Timekeeper do
     end
   end
 
-  describe "load-time at_exit hook" do
-    it "skips registering the at_exit hook when YARD_TIMEKEEPER_SKIP_AT_EXIT is set" do
-      stub_env("YARD_TIMEKEEPER_SKIP_AT_EXIT" => "1")
+  describe "::run_at_exit" do
+    it "delegates to postprocess_html_docs" do
+      allow(described_class).to receive(:postprocess_html_docs)
 
-      expect {
-        load File.expand_path("../../lib/yard/timekeeper.rb", __dir__), true
-      }.not_to raise_error
+      described_class.run_at_exit
+
+      expect(described_class).to have_received(:postprocess_html_docs)
     end
   end
 end

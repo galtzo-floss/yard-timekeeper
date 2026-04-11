@@ -41,6 +41,10 @@ module Yard
         warn("Yard::Timekeeper.postprocess_html_docs failed: #{e.class}: #{e.message}")
       end
 
+      def run_at_exit
+        postprocess_html_docs
+      end
+
       def enabled?
         !ENV.fetch("YARD_TIMEKEEPER_DISABLE", "false").casecmp?("true")
       end
@@ -106,8 +110,10 @@ module Yard
   end
 end
 
+# :nocov:
 unless ENV["YARD_TIMEKEEPER_SKIP_AT_EXIT"] == "1"
   at_exit do
-    Yard::Timekeeper.postprocess_html_docs
+    Yard::Timekeeper.run_at_exit
   end
 end
+# :nocov:
