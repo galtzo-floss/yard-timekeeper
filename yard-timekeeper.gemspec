@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
-  spec.summary = "Preserve tracked YARD docs when only the generated timestamp changed."
-  spec.description = "A YARD plugin that post-processes generated docs, detects timestamp-only diffs in tracked HTML files under docs/, and restores those files from git to prevent pointless churn while keeping the footer timestamp on genuinely changed pages."
+  spec.summary = "🍲 Preserve tracked YARD docs when only the generated timestamp changed."
+  spec.description = "🍲 A YARD plugin that post-processes generated docs, detects timestamp-only diffs in tracked HTML files under docs/, and restores those files from git to prevent pointless churn while keeping the footer timestamp on genuinely changed pages."
   spec.homepage = "https://github.com/pboling/yard-timekeeper"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 3.2.0"
@@ -134,6 +134,12 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency("erb", ">= 2.2")                                  # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
   spec.add_development_dependency("gitmoji-regex", "~> 1.0", ">= 1.0.3")            # ruby >= 2.3.0
 
+  # HTTP recording for deterministic specs
+  # In Ruby 3.5 (HEAD) the CGI library has been pared down, so we also need to depend on gem "cgi" for ruby@head
+  # This is done in the "head" appraisal.
+  # See: https://github.com/vcr/vcr/issues/1057
+  # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
+  # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
   # HTTP recording for deterministic specs
   # In Ruby 3.5 (HEAD) the CGI library has been pared down, so we also need to depend on gem "cgi" for ruby@head
   # This is done in the "head" appraisal.
