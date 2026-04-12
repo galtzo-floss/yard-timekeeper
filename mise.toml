@@ -4,7 +4,7 @@
 DEBUG = "false"
 FLOSS_CFG_FUND_DEBUG = "false"
 FLOSS_CFG_FUND_LOGFILE = "tmp/log/debug.log"
-FUNDING_ORG = "pboling"
+FUNDING_ORG = "galtzo-floss"
 KETTLE_DEV_DEBUG = "false"
 KETTLE_TEST_SILENT = "true"
 K_SOUP_COV_COMMAND_NAME = "Test Coverage"
