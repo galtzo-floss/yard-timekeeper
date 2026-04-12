@@ -177,10 +177,10 @@ Generate docs as usual:
 bin/rake yard
 ```
 
-Or via direct YARD invocation if your project uses that path:
+Or invoke the docs task explicitly:
 
 ```console
-bin/yard
+bin/rake yard
 ```
 
 For checked-in docs, the recommended setup is:
