@@ -140,7 +140,7 @@ engines:
 # Supported values: org, project, org_and_project
 # Default (when key is absent): org_and_project
 readme:
-  top_logo_mode: org_and_project
+  top_logo_mode: project
   # Sections to preserve from the destination README during template merging.
   # These section headings (case-insensitive) will keep the destination body
   # instead of being overwritten by the template. Default when absent:
