@@ -165,7 +165,7 @@ Your picture could be here!
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/yard-timekeeper/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/yard-timekeeper/-/graphs/main][🚎contributors-gl]
 
 ## For Maintainers
 
@@ -216,15 +216,15 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
-[📜src-gl]: https://gitlab.com/pboling/yard-timekeeper/
-[📜src-cb]: https://codeberg.org/pboling/yard-timekeeper
-[📜src-gh]: https://github.com/pboling/yard-timekeeper
-[🧪build]: https://github.com/pboling/yard-timekeeper/actions
-[🤝conduct]: https://gitlab.com/pboling/yard-timekeeper/-/blob/main/CODE_OF_CONDUCT.md
+[📜src-gl]: https://gitlab.com/galtzo-floss/yard-timekeeper/
+[📜src-cb]: https://codeberg.org/galtzo-floss/yard-timekeeper
+[📜src-gh]: https://github.com/galtzo-floss/yard-timekeeper
+[🧪build]: https://github.com/galtzo-floss/yard-timekeeper/actions
+[🤝conduct]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/pboling/yard-timekeeper/graphs/contributors
-[🚎contributors-gl]: https://gitlab.com/pboling/yard-timekeeper/-/graphs/main
-[🖐contributors-img]: https://contrib.rocks/image?repo=pboling/yard-timekeeper
+[🖐contributors]: https://github.com/galtzo-floss/yard-timekeeper/graphs/contributors
+[🚎contributors-gl]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/graphs/main
+[🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/yard-timekeeper
 [💎gem-coop]: https://gem.coop
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022

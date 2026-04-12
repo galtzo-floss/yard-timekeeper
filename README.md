@@ -4,8 +4,8 @@
 [🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
 [🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
 [🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️yard-timekeeper-i]: https://logos.galtzo.com/assets/images/pboling/yard-timekeeper/avatar-192px.svg
-[🖼️yard-timekeeper]: https://github.com/pboling/yard-timekeeper
+[🖼️yard-timekeeper-i]: https://logos.galtzo.com/assets/images/galtzo-floss/yard-timekeeper/avatar-192px.svg
+[🖼️yard-timekeeper]: https://github.com/galtzo-floss/yard-timekeeper
 
 # 🕰️ Yard::Timekeeper
 
@@ -59,14 +59,14 @@ Compatible with MRI Ruby 3.2.0+, and concordant releases of JRuby, and TruffleRu
 
 | Federated [DVCS][💎d-in-dvcs] Repository        | Status                                                                | Issues                    | PRs                      | Wiki                      | CI                       | Discussions                  |
 |-------------------------------------------------|-----------------------------------------------------------------------|---------------------------|--------------------------|---------------------------|--------------------------|------------------------------|
-| 🧪 [pboling/yard-timekeeper on GitLab][📜src-gl]   | The Truth                                                             | [💚][🤝gl-issues]         | [💚][🤝gl-pulls]         | [💚][📜gl-wiki]           | 🐭 Tiny Matrix           | ➖                            |
-| 🧊 [pboling/yard-timekeeper on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate])                             | [💚][🤝cb-issues]         | [💚][🤝cb-pulls]         | ➖                         | ⭕️ No Matrix             | ➖                            |
-| 🐙 [pboling/yard-timekeeper on GitHub][📜src-gh]   | Another Mirror                                                        | [💚][🤝gh-issues]         | [💚][🤝gh-pulls]         | [💚][📜gh-wiki]           | 💯 Full Matrix           | [💚][gh-discussions]         |
+| 🧪 [galtzo-floss/yard-timekeeper on GitLab][📜src-gl]   | The Truth                                                             | [💚][🤝gl-issues]         | [💚][🤝gl-pulls]         | [💚][📜gl-wiki]           | 🐭 Tiny Matrix           | ➖                            |
+| 🧊 [galtzo-floss/yard-timekeeper on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate])                             | [💚][🤝cb-issues]         | [💚][🤝cb-pulls]         | ➖                         | ⭕️ No Matrix             | ➖                            |
+| 🐙 [galtzo-floss/yard-timekeeper on GitHub][📜src-gh]   | Another Mirror                                                        | [💚][🤝gh-issues]         | [💚][🤝gh-pulls]         | [💚][📜gh-wiki]           | 💯 Full Matrix           | [💚][gh-discussions]         |
 | 🎮️ [Discord Server][✉️discord-invite]          | [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite] | [Let's][✉️discord-invite] | [talk][✉️discord-invite] | [about][✉️discord-invite] | [this][✉️discord-invite] | [library!][✉️discord-invite] |
 
 </details>
 
-[gh-discussions]: https://github.com/pboling/yard-timekeeper/discussions
+[gh-discussions]: https://github.com/galtzo-floss/yard-timekeeper/discussions
 
 ### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/yard-timekeeper)](https://tidelift.com/subscription/pkg/rubygems-yard-timekeeper?utm_source=rubygems-yard-timekeeper&utm_medium=referral&utm_campaign=readme)
 
@@ -193,17 +193,17 @@ For checked-in docs, the recommended setup is:
 
 ## 🦷 FLOSS Funding
 
-While pboling tools are free software and will always be, the project would benefit immensely from some funding.
+While galtzo-floss tools are free software and will always be, the project would benefit immensely from some funding.
 Raising a monthly budget of... "dollars" would make the project more sustainable.
 
 We welcome both individual and corporate sponsors! We also offer a
 wide array of funding channels to account for your preferences
 (although currently [Open Collective][🖇osc] is our preferred funding platform).
 
-**If you're working in a company that's making significant use of pboling tools we'd
-appreciate it if you suggest to your company to become a pboling sponsor.**
+**If you're working in a company that's making significant use of galtzo-floss tools we'd
+appreciate it if you suggest to your company to become a galtzo-floss sponsor.**
 
-You can support the development of pboling tools via
+You can support the development of galtzo-floss tools via
 [GitHub Sponsors][🖇sponsor],
 [Liberapay][⛳liberapay],
 [PayPal][🖇paypal],
@@ -216,7 +216,7 @@ and [Tidelift][🏙️entsup-tidelift].
 
 ### Open Collective for Individuals
 
-Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/pboling#backer)]
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/galtzo-floss#backer)]
 
 NOTE: [kettle-readme-backers][kettle-readme-backers] updates this list every day, automatically.
 
@@ -226,7 +226,7 @@ No backers yet. Be the first!
 
 ### Open Collective for Organizations
 
-Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor](https://opencollective.com/pboling#sponsor)]
+Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor](https://opencollective.com/galtzo-floss#sponsor)]
 
 NOTE: [kettle-readme-backers][kettle-readme-backers] updates this list every day, automatically.
 
@@ -234,7 +234,7 @@ NOTE: [kettle-readme-backers][kettle-readme-backers] updates this list every day
 No sponsors yet. Be the first!
 <!-- OPENCOLLECTIVE-ORGANIZATIONS:END -->
 
-[kettle-readme-backers]: https://github.com/pboling/yard-timekeeper/blob/main/exe/kettle-readme-backers
+[kettle-readme-backers]: https://github.com/galtzo-floss/yard-timekeeper/blob/main/exe/kettle-readme-backers
 
 ### Another way to support open-source
 
@@ -285,16 +285,16 @@ chat rooms and mailing lists agrees to follow the [![Contributor Covenant 2.1][�
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/yard-timekeeper/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/yard-timekeeper/-/graphs/main][🚎contributors-gl]
 
 <details>
     <summary>⭐️ Star History</summary>
 
-<a href="https://star-history.com/#pboling/yard-timekeeper&Date">
+<a href="https://star-history.com/#galtzo-floss/yard-timekeeper&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=pboling/yard-timekeeper&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=pboling/yard-timekeeper&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=pboling/yard-timekeeper&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/yard-timekeeper&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/yard-timekeeper&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/yard-timekeeper&type=Date" />
  </picture>
 </a>
 
@@ -361,7 +361,7 @@ To join the community or get help 👇️ Join the Discord.
 
 To say "thanks!" ☝️ Join the Discord or 👇️ send money.
 
-[![Sponsor pboling/yard-timekeeper on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
+[![Sponsor galtzo-floss/yard-timekeeper on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
 
 ### Please give the project a star ⭐ ♥.
 
@@ -370,17 +370,17 @@ Thanks for RTFM. ☺️
 [⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
 [⛳liberapay-bottom-img]: https://img.shields.io/liberapay/goal/pboling.svg?style=for-the-badge&logo=liberapay&color=a51611
 [⛳liberapay]: https://liberapay.com/pboling/donate
-[🖇osc-all-img]: https://img.shields.io/opencollective/all/pboling
-[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/pboling
-[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/pboling
-[🖇osc-backers]: https://opencollective.com/pboling#backer
-[🖇osc-backers-i]: https://opencollective.com/pboling/backers/badge.svg?style=flat
-[🖇osc-sponsors]: https://opencollective.com/pboling#sponsor
-[🖇osc-sponsors-i]: https://opencollective.com/pboling/sponsors/badge.svg?style=flat
-[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/pboling?style=for-the-badge
-[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/pboling?style=for-the-badge
-[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/pboling?style=for-the-badge
-[🖇osc]: https://opencollective.com/pboling
+[🖇osc-all-img]: https://img.shields.io/opencollective/all/galtzo-floss
+[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/galtzo-floss
+[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/galtzo-floss
+[🖇osc-backers]: https://opencollective.com/galtzo-floss#backer
+[🖇osc-backers-i]: https://opencollective.com/galtzo-floss/backers/badge.svg?style=flat
+[🖇osc-sponsors]: https://opencollective.com/galtzo-floss#sponsor
+[🖇osc-sponsors-i]: https://opencollective.com/galtzo-floss/sponsors/badge.svg?style=flat
+[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/galtzo-floss?style=for-the-badge
+[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/galtzo-floss?style=for-the-badge
+[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/galtzo-floss?style=for-the-badge
+[🖇osc]: https://opencollective.com/galtzo-floss
 [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
 [🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
 [🖇sponsor]: https://github.com/sponsors/pboling
@@ -404,12 +404,12 @@ Thanks for RTFM. ☺️
 [✉️ruby-friends]: https://app.daily.dev/squads/rubyfriends
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
-[⛳️gem-namespace]: https://github.com/pboling/yard-timekeeper
+[⛳️gem-namespace]: https://github.com/galtzo-floss/yard-timekeeper
 [⛳️namespace-img]: https://img.shields.io/badge/namespace-Yard::Timekeeper-3C2D2D.svg?style=square&logo=ruby&logoColor=white
 [⛳️gem-name]: https://bestgems.org/gems/yard-timekeeper
 [⛳️name-img]: https://img.shields.io/badge/name-yard--timekeeper-3C2D2D.svg?style=square&logo=rubygems&logoColor=red
-[⛳️tag-img]: https://img.shields.io/github/tag/pboling/yard-timekeeper.svg
-[⛳️tag]: http://github.com/pboling/yard-timekeeper/releases
+[⛳️tag-img]: https://img.shields.io/github/tag/galtzo-floss/yard-timekeeper.svg
+[⛳️tag]: http://github.com/galtzo-floss/yard-timekeeper/releases
 [🚂maint-blog]: http://www.railsbling.com/tags/yard-timekeeper
 [🚂maint-blog-img]: https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&logo=rubyonrails&logoColor=orange
 [🚂maint-contact]: http://www.railsbling.com/contact
@@ -444,58 +444,58 @@ Thanks for RTFM. ☺️
 [💁🏼‍♂️peterboling]: http://www.peterboling.com
 [🚂railsbling]: http://www.railsbling.com
 [📜src-gl-img]: https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&logo=Gitlab&logoColor=orange
-[📜src-gl]: https://gitlab.com/pboling/yard-timekeeper/
+[📜src-gl]: https://gitlab.com/galtzo-floss/yard-timekeeper/
 [📜src-cb-img]: https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&logo=CodeBerg&logoColor=blue
-[📜src-cb]: https://codeberg.org/pboling/yard-timekeeper
+[📜src-cb]: https://codeberg.org/galtzo-floss/yard-timekeeper
 [📜src-gh-img]: https://img.shields.io/badge/GitHub-238636?style=for-the-badge&logo=Github&logoColor=green
-[📜src-gh]: https://github.com/pboling/yard-timekeeper
+[📜src-gh]: https://github.com/galtzo-floss/yard-timekeeper
 [📜docs-cr-rd-img]: https://img.shields.io/badge/RubyDoc-Current_Release-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
 [📜docs-head-rd-img]: https://img.shields.io/badge/YARD_on_Galtzo.com-HEAD-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
-[📜gl-wiki]: https://gitlab.com/pboling/yard-timekeeper/-/wikis/home
-[📜gh-wiki]: https://github.com/pboling/yard-timekeeper/wiki
+[📜gl-wiki]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/wikis/home
+[📜gh-wiki]: https://github.com/galtzo-floss/yard-timekeeper/wiki
 [📜gl-wiki-img]: https://img.shields.io/badge/wiki-examples-943CD2.svg?style=for-the-badge&logo=gitlab&logoColor=white
 [📜gh-wiki-img]: https://img.shields.io/badge/wiki-examples-943CD2.svg?style=for-the-badge&logo=github&logoColor=white
 [👽dl-rank]: https://bestgems.org/gems/yard-timekeeper
 [👽dl-ranki]: https://img.shields.io/gem/rd/yard-timekeeper.svg
-[👽oss-help]: https://www.codetriage.com/pboling/yard-timekeeper
-[👽oss-helpi]: https://www.codetriage.com/pboling/yard-timekeeper/badges/users.svg
+[👽oss-help]: https://www.codetriage.com/galtzo-floss/yard-timekeeper
+[👽oss-helpi]: https://www.codetriage.com/galtzo-floss/yard-timekeeper/badges/users.svg
 [👽version]: https://bestgems.org/gems/yard-timekeeper
 [👽versioni]: https://img.shields.io/gem/v/yard-timekeeper.svg
-[🏀qlty-mnt]: https://qlty.sh/gh/pboling/projects/yard-timekeeper
-[🏀qlty-mnti]: https://qlty.sh/gh/pboling/projects/yard-timekeeper/maintainability.svg
-[🏀qlty-cov]: https://qlty.sh/gh/pboling/projects/yard-timekeeper/metrics/code?sort=coverageRating
-[🏀qlty-covi]: https://qlty.sh/gh/pboling/projects/yard-timekeeper/coverage.svg
-[🏀codecov]: https://codecov.io/gh/pboling/yard-timekeeper
-[🏀codecovi]: https://codecov.io/gh/pboling/yard-timekeeper/graph/badge.svg
-[🏀coveralls]: https://coveralls.io/github/pboling/yard-timekeeper?branch=main
-[🏀coveralls-img]: https://coveralls.io/repos/github/pboling/yard-timekeeper/badge.svg?branch=main
-[🖐codeQL]: https://github.com/pboling/yard-timekeeper/security/code-scanning
-[🖐codeQL-img]: https://github.com/pboling/yard-timekeeper/actions/workflows/codeql-analysis.yml/badge.svg
-[🚎ruby-3.2-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/ruby-3.2.yml
-[🚎ruby-3.3-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/ruby-3.3.yml
-[🚎ruby-3.4-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/ruby-3.4.yml
-[🚎truby-24.2-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/truffleruby-24.2.yml
-[🚎truby-25.0-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/truffleruby-25.0.yml
-[🚎2-cov-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/coverage.yml
-[🚎2-cov-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/coverage.yml/badge.svg
-[🚎3-hd-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/heads.yml
-[🚎3-hd-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/heads.yml/badge.svg
-[🚎5-st-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/style.yml
-[🚎5-st-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/style.yml/badge.svg
-[🚎9-t-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/truffle.yml
-[🚎9-t-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/truffle.yml/badge.svg
-[🚎10-j-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/jruby.yml
-[🚎10-j-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/jruby.yml/badge.svg
-[🚎11-c-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/current.yml
-[🚎11-c-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/current.yml/badge.svg
-[🚎12-crh-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/dep-heads.yml
-[🚎12-crh-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/dep-heads.yml/badge.svg
-[🚎13-🔒️-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/locked_deps.yml
-[🚎13-🔒️-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/locked_deps.yml/badge.svg
-[🚎14-🔓️-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/unlocked_deps.yml
-[🚎14-🔓️-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/unlocked_deps.yml/badge.svg
-[🚎15-🪪-wf]: https://github.com/pboling/yard-timekeeper/actions/workflows/license-eye.yml
-[🚎15-🪪-wfi]: https://github.com/pboling/yard-timekeeper/actions/workflows/license-eye.yml/badge.svg
+[🏀qlty-mnt]: https://qlty.sh/gh/galtzo-floss/projects/yard-timekeeper
+[🏀qlty-mnti]: https://qlty.sh/gh/galtzo-floss/projects/yard-timekeeper/maintainability.svg
+[🏀qlty-cov]: https://qlty.sh/gh/galtzo-floss/projects/yard-timekeeper/metrics/code?sort=coverageRating
+[🏀qlty-covi]: https://qlty.sh/gh/galtzo-floss/projects/yard-timekeeper/coverage.svg
+[🏀codecov]: https://codecov.io/gh/galtzo-floss/yard-timekeeper
+[🏀codecovi]: https://codecov.io/gh/galtzo-floss/yard-timekeeper/graph/badge.svg
+[🏀coveralls]: https://coveralls.io/github/galtzo-floss/yard-timekeeper?branch=main
+[🏀coveralls-img]: https://coveralls.io/repos/github/galtzo-floss/yard-timekeeper/badge.svg?branch=main
+[🖐codeQL]: https://github.com/galtzo-floss/yard-timekeeper/security/code-scanning
+[🖐codeQL-img]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/codeql-analysis.yml/badge.svg
+[🚎ruby-3.2-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/ruby-3.2.yml
+[🚎ruby-3.3-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/ruby-3.3.yml
+[🚎ruby-3.4-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/ruby-3.4.yml
+[🚎truby-24.2-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/truffleruby-24.2.yml
+[🚎truby-25.0-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/truffleruby-25.0.yml
+[🚎2-cov-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/coverage.yml
+[🚎2-cov-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/coverage.yml/badge.svg
+[🚎3-hd-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/heads.yml
+[🚎3-hd-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/heads.yml/badge.svg
+[🚎5-st-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/style.yml
+[🚎5-st-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/style.yml/badge.svg
+[🚎9-t-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/truffle.yml
+[🚎9-t-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/truffle.yml/badge.svg
+[🚎10-j-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/jruby.yml
+[🚎10-j-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/jruby.yml/badge.svg
+[🚎11-c-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/current.yml
+[🚎11-c-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/current.yml/badge.svg
+[🚎12-crh-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/dep-heads.yml
+[🚎12-crh-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/dep-heads.yml/badge.svg
+[🚎13-🔒️-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/locked_deps.yml
+[🚎13-🔒️-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/locked_deps.yml/badge.svg
+[🚎14-🔓️-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/unlocked_deps.yml
+[🚎14-🔓️-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/unlocked_deps.yml/badge.svg
+[🚎15-🪪-wf]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/license-eye.yml
+[🚎15-🪪-wfi]: https://github.com/galtzo-floss/yard-timekeeper/actions/workflows/license-eye.yml/badge.svg
 [💎ruby-3.2i]: https://img.shields.io/badge/Ruby-3.2-CC342D?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-3.3i]: https://img.shields.io/badge/Ruby-3.3-CC342D?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-3.4i]: https://img.shields.io/badge/Ruby-3.4-CC342D?style=for-the-badge&logo=ruby&logoColor=white
@@ -507,19 +507,19 @@ Thanks for RTFM. ☺️
 [💎truby-c-i]: https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&logo=ruby&logoColor=green
 [💎jruby-c-i]: https://img.shields.io/badge/JRuby-current-FBE742?style=for-the-badge&logo=ruby&logoColor=green
 [💎jruby-headi]: https://img.shields.io/badge/JRuby-HEAD-FBE742?style=for-the-badge&logo=ruby&logoColor=blue
-[🤝gh-issues]: https://github.com/pboling/yard-timekeeper/issues
-[🤝gh-pulls]: https://github.com/pboling/yard-timekeeper/pulls
-[🤝gl-issues]: https://gitlab.com/pboling/yard-timekeeper/-/issues
-[🤝gl-pulls]: https://gitlab.com/pboling/yard-timekeeper/-/merge_requests
-[🤝cb-issues]: https://codeberg.org/pboling/yard-timekeeper/issues
-[🤝cb-pulls]: https://codeberg.org/pboling/yard-timekeeper/pulls
+[🤝gh-issues]: https://github.com/galtzo-floss/yard-timekeeper/issues
+[🤝gh-pulls]: https://github.com/galtzo-floss/yard-timekeeper/pulls
+[🤝gl-issues]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/issues
+[🤝gl-pulls]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/merge_requests
+[🤝cb-issues]: https://codeberg.org/galtzo-floss/yard-timekeeper/issues
+[🤝cb-pulls]: https://codeberg.org/galtzo-floss/yard-timekeeper/pulls
 [🤝cb-donate]: https://donate.codeberg.org/
 [🤝contributing]: CONTRIBUTING.md
-[🏀codecov-g]: https://codecov.io/gh/pboling/yard-timekeeper/graphs/tree.svg
+[🏀codecov-g]: https://codecov.io/gh/galtzo-floss/yard-timekeeper/graphs/tree.svg
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/pboling/yard-timekeeper/graphs/contributors
-[🖐contributors-img]: https://contrib.rocks/image?repo=pboling/yard-timekeeper
-[🚎contributors-gl]: https://gitlab.com/pboling/yard-timekeeper/-/graphs/main
+[🖐contributors]: https://github.com/galtzo-floss/yard-timekeeper/graphs/contributors
+[🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/yard-timekeeper
+[🚎contributors-gl]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/graphs/main
 [🪇conduct]: CODE_OF_CONDUCT.md
 [🪇conduct-img]: https://img.shields.io/badge/Contributor_Covenant-2.1-259D6C.svg
 [📌pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
@@ -547,7 +547,7 @@ Thanks for RTFM. ☺️
 [🚎yard-current]: http://rubydoc.info/gems/yard-timekeeper
 [🚎yard-head]: https://yard-timekeeper.galtzo.com
 [💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums
-[💎SHA_checksums]: https://gitlab.com/pboling/yard-timekeeper/-/tree/main/checksums
+[💎SHA_checksums]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/tree/main/checksums
 [💎rlts]: https://github.com/rubocop-lts/rubocop-lts
 [💎rlts-img]: https://img.shields.io/badge/code_style_&_linting-rubocop--lts-34495e.svg?plastic&logo=ruby&logoColor=white
 [💎appraisal2]: https://github.com/appraisal-rb/appraisal2
