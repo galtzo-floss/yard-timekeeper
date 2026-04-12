@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "🕰️ Preserve tracked YARD docs when only the generated timestamp changed."
   spec.description = "🕰️ A YARD plugin that post-processes generated docs, detects timestamp-only diffs in tracked HTML files under docs/, and restores those files from git to prevent pointless churn while keeping the footer timestamp on genuinely changed pages."
-  spec.homepage = "https://github.com/pboling/yard-timekeeper"
+  spec.homepage = "https://github.com/galtzo-floss/yard-timekeeper"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 3.2.0"
 
