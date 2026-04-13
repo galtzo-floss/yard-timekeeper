@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "rake"
 require "tmpdir"
 
 RSpec.describe Yard::Timekeeper do
@@ -250,6 +251,27 @@ RSpec.describe Yard::Timekeeper do
       described_class.run_at_exit
 
       expect(described_class).to have_received(:postprocess_html_docs)
+    end
+  end
+
+  describe "::install_rake_tasks!" do
+    before do
+      Rake::Task.clear
+      described_class.__reset_rake_integrations__
+      Rake::Task.define_task(:yard)
+    end
+
+    it "adds a postprocess action to the yard task" do
+      allow(described_class).to receive(:postprocess_html_docs)
+
+      expect(described_class.install_rake_tasks!(:yard)).to be(true)
+      Rake::Task[:yard].invoke
+
+      expect(described_class).to have_received(:postprocess_html_docs).once
+    end
+
+    it "returns false when the task does not exist" do
+      expect(described_class.install_rake_tasks!(:missing)).to be(false)
     end
   end
 end

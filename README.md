@@ -28,6 +28,18 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 ## 🌻 Synopsis
 
+`yard-timekeeper` keeps checked-in YARD HTML stable by restoring files whose
+only change is the generated footer timestamp.
+
+Just the important bits:
+
+- It postprocesses generated `docs/**/*.html` files after YARD finishes.
+- It only restores files that are already tracked in git and only when the diff
+  is timestamp-only.
+- Real content changes are preserved.
+- The supported workflow is `rake yard`; raw `yard` / `bin/yard` does not run
+  the explicit postprocess hook.
+
 ## 💡 Info you can shake a stick at
 
 | Tokens to Remember      | [![Gem name][⛳️name-img]][⛳️gem-name] [![Gem namespace][⛳️namespace-img]][⛳️gem-namespace]                                                                                                                                                                                                                                                                          |
@@ -142,10 +154,14 @@ NOTE: Be prepared to track down certs for signed gems and add them the same way 
 
 ## ⚙️ Configuration
 
-Add the plugin to your `.yardopts`:
+No `.yardopts` entry is required when you wire `yard-timekeeper` through the
+rake integration. In fact, `--plugin timekeeper` should be removed from
+`.yardopts` for this workflow:
 
-```text
---plugin timekeeper
+```ruby
+require "yard/timekeeper"
+
+Yard::Timekeeper.install_rake_tasks!(:yard)
 ```
 
 `yard-timekeeper` runs after YARD generates HTML and checks git diffs for tracked
@@ -167,28 +183,24 @@ Notes:
 Environment toggles:
 
 - `YARD_TIMEKEEPER_DISABLE=true` — disable the post-process entirely
-- `YARD_TIMEKEEPER_SKIP_AT_EXIT=1` — skip registering the automatic at-exit hook
 
 ## 🔧 Basic Usage
 
-Generate docs as usual:
+Generate docs through rake so the postprocess runs after YARD finishes:
 
 ```console
 bin/rake yard
 ```
 
-Or invoke the docs task explicitly:
-
-```console
-bin/rake yard
-```
+If your project also exposes `bin/yard`, do not rely on it for the full docs
+workflow. It runs YARD, but it does not run
+`Yard::Timekeeper.install_rake_tasks!(:yard)`.
 
 For checked-in docs, the recommended setup is:
 
 ```text
 --plugin fence
 --plugin yaml
---plugin timekeeper
 ```
 
 ## 🦷 FLOSS Funding

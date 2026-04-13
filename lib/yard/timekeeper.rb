@@ -11,6 +11,8 @@ end
 module Yard
   module Timekeeper
     class Error < StandardError; end
+    RAKE_INTEGRATIONS = {}
+    RAKE_INTEGRATIONS_MUTEX = Mutex.new
 
     TIMESTAMP_DIFF_LINE_RE = /\A[+-]\s{2}Generated on .+ by\s*\z/
     DIFF_METADATA_PREFIXES = [
@@ -43,6 +45,25 @@ module Yard
 
       def run_at_exit
         postprocess_html_docs
+      end
+
+      def install_rake_tasks!(yard_task_name = :yard)
+        return false unless defined?(::Rake::Task) && ::Rake::Task.task_defined?(yard_task_name)
+
+        RAKE_INTEGRATIONS_MUTEX.synchronize do
+          key = yard_task_name.to_s
+          unless RAKE_INTEGRATIONS[key]
+            ::Rake::Task[yard_task_name].enhance { ::Yard::Timekeeper.postprocess_html_docs }
+            RAKE_INTEGRATIONS[key] = true
+          end
+        end
+
+        true
+      end
+
+      def __reset_rake_integrations__
+        RAKE_INTEGRATIONS_MUTEX.synchronize { RAKE_INTEGRATIONS.clear }
+        nil
       end
 
       def enabled?
@@ -110,10 +131,6 @@ module Yard
   end
 end
 
-# :nocov:
-unless ENV["YARD_TIMEKEEPER_SKIP_AT_EXIT"] == "1"
-  at_exit do
-    Yard::Timekeeper.run_at_exit
-  end
-end
-# :nocov:
+# Rake integration is explicit. Call Yard::Timekeeper.install_rake_tasks! from
+# your Rakefile after defining the :yard task so postprocess only runs for
+# documentation builds, never for unrelated processes that happen to load YARD.
