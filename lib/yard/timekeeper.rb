@@ -130,7 +130,6 @@ module Yard
     end
   end
 end
-
 # Rake integration is explicit. Call Yard::Timekeeper.install_rake_tasks! from
 # your Rakefile after defining the :yard task so postprocess only runs for
 # documentation builds, never for unrelated processes that happen to load YARD.
