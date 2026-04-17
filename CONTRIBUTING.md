@@ -8,13 +8,15 @@ To submit a patch, please fork the project, create a patch with tests, and send 
 
 Remember to [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] if you make changes.
 
-## Help out!
-
 ## Developer Certificate of Origin
 
 In order to protect users of this project, we require all contributors to comply with the
 [Developer Certificate of Origin](https://developercertificate.org/).
 This ensures that all contributions are properly licensed and attributed.
+
+## Help out!
+
+Take a look at the open issues and pull requests, or use the gem and find something to improve.
 
 Follow these instructions:
 
@@ -102,16 +104,6 @@ bin/rake appraisal:reset
 ```
 
 When adding an appraisal to CI, check the [runner tool cache][🏃‍♂️runner-tool-cache] to see which runner to use.
-
-## The Reek List
-
-Take a look at the open issues and pull requests, or use the gem and find something to improve.
-
-To refresh the `reek` list:
-
-```console
-bundle exec reek > REEK
-```
 
 ## Run Tests
 
