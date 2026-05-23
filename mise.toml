@@ -8,6 +8,7 @@ FLOSS_CFG_FUND_LOGFILE = "tmp/log/debug.log"
 FUNDING_ORG = "galtzo-floss"
 KETTLE_DEV_DEBUG = "false"
 KETTLE_TEST_SILENT = "true"
+KJ_PROJECT_EMOJI = "🕰️"
 K_SOUP_COV_COMMAND_NAME = "Test Coverage"
 K_SOUP_COV_DO = "true"
 K_SOUP_COV_FORMATTERS = "html,xml,rcov,lcov,json,tty"
@@ -34,4 +35,4 @@ _.path = ["exe", "bin"]
 _.source = ".config/mise/env.sh"
 
 [tools]
-ruby = "4.0.2"
+ruby = "4.0.5"
