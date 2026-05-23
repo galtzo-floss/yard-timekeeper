@@ -1,0 +1,9 @@
+module Yard
+  module Timekeeper
+    module Version
+      VERSION: String
+    end
+    VERSION: String
+  end
+end
+

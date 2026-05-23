@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 # kettle-jem:freeze
@@ -36,8 +37,7 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-  spec.metadata["homepage_uri"] = "https://yard-timekeeper.galtzo.com/"
+  spec.metadata["homepage_uri"] = "https://yard-timekeeper.galtzo.com"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
@@ -48,13 +48,20 @@ Gem::Specification.new do |spec|
   spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"
   spec.metadata["rubygems_mfa_required"] = "true"
 
+  enumerate_package_files = lambda do |root|
+    Dir.glob(File.join(root, "**", "*"), File::FNM_DOTMATCH).select do |path|
+      File.file?(path) && ![".", ".."].include?(File.basename(path))
+    end
+  end
+
   # Specify which files are part of the released package.
-  spec.files = Dir[
+  spec.files = [
     # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
-    "lib/**/*.rb",
-    "lib/**/*.rake",
+    *enumerate_package_files.call("lib"),
+    # Public certs for gem signing
+    *enumerate_package_files.call("certs"),
     # Signatures
-    "sig/**/*.rbs",
+    *enumerate_package_files.call("sig"),
   ]
 
   # Automatically included with gem package, no need to list again in files.

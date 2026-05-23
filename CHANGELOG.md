@@ -17,25 +17,31 @@ Please file a bug if you notice a violation of semantic versioning.
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
 
 ## [Unreleased]
-
 ### Added
-
-- `Yard::Timekeeper.install_rake_tasks!` for explicit integration with a chosen documentation rake task
-
 ### Changed
-
-- Workspace documentation development can now source `yard-timekeeper` through the sibling `documentation_local.gemfile` pattern instead of only released gems
-
 ### Deprecated
-
 ### Removed
-
 ### Fixed
-
-- `yard-timekeeper` no longer relies on global `at_exit` hooks, so loading YARD during unrelated rake tasks no longer post-processes `docs/`
-
 ### Security
 
-## [0.1.0] - 2026-04-11
+## [1.0.1] - 2025-08-24
+- TAG: [v1.0.1][1.0.1t]
+- COVERAGE: 100.00% -- 130/130 lines in 7 files
+- BRANCH COVERAGE: 96.00% -- 48/50 branches in 7 files
+- 100% documented
+### Fixed
+- bugfix: oopsie
 
+## [1.0.0] - 2025-08-24
+- TAG: [v1.0.0][1.0.0t]
+- COVERAGE: 100.00% -- 130/130 lines in 7 files
+- BRANCH COVERAGE: 96.00% -- 48/50 branches in 7 files
+- 100% documented
+### Added
 - Initial release
+
+[Unreleased]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/compare/v1.0.0...HEAD
+[1.0.0]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/compare/a427c302df09cfe4253a7c8d400333f9a4c1a208...v1.0.0
+[1.0.0t]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/tags/v1.0.0
+[1.0.1]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/compare/v1.0.0...v1.0.1
+[1.0.1t]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/tags/v1.0.1

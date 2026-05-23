@@ -1,36 +1,10 @@
-# Lock/Unlock Deps Pattern
-#
-# Two often conflicting goals resolved!
-#
-#  - unlocked_deps.yml
-#    - All runtime & dev dependencies, but does not have a `gemfiles/*.gemfile.lock` committed
-#    - Uses an Appraisal2 "unlocked_deps" gemfile, and the current MRI Ruby release
-#    - Know when new dependency releases will break local dev with unlocked dependencies
-#    - Broken workflow indicates that new releases of dependencies may not work
-#
-#  - locked_deps.yml
-#    - All runtime & dev dependencies, and has a `Gemfile.lock` committed
-#    - Uses the project's main Gemfile, and the current MRI Ruby release
-#    - Matches what contributors and maintainers use locally for development
-#    - Broken workflow indicates that a new contributor will have a bad time
-#
-name: Deps Locked
+name: JRuby 9.3
 
 permissions:
   contents: read
 
 env:
-  # Running coverage, but not validating minimum coverage,
-  #   because it would be redundant with the coverage workflow.
-  # Also we can validate all output formats without breaking CodeCov,
-  #   since we aren't submitting these reports anywhere.
-  K_SOUP_COV_MIN_BRANCH: 10
-  K_SOUP_COV_MIN_LINE: 40
-  K_SOUP_COV_MIN_HARD: false
-  K_SOUP_COV_FORMATTERS: "html,xml,rcov,lcov,json,tty"
-  K_SOUP_COV_DO: true
-  K_SOUP_COV_MULTI_FORMATTERS: true
-  K_SOUP_COV_COMMAND_NAME: "Test Coverage"
+  K_SOUP_COV_DO: false
 
 on:
   push:
@@ -54,25 +28,29 @@ concurrency:
 jobs:
   test:
     if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
-    name: Default rake task w/ main Gemfile.lock ${{ matrix.name_extra || '' }}
-    runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
+    name: Specs ${{ matrix.ruby }}@${{ matrix.appraisal }}
+    runs-on: ubuntu-22.04
+    continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
+    env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
+      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}.gemfile
     strategy:
-      fail-fast: false
       matrix:
         include:
-          # Ruby <whichever version is current, e.g., 3.4 as of 2025-07-12>
-          - ruby: "ruby"
-            exec_cmd: "rake"
-            rubygems: latest
-            bundler: latest
-            experimental: false
+          # jruby-9.3 (targets Ruby 2.6 compatibility)
+          - ruby: "jruby-9.3"
+            appraisal: "ruby-2-6"
+            exec_cmd: "rake test"
+            gemfile: "Appraisal.root"
+            rubygems: default
+            bundler: default
 
     steps:
       - name: Checkout
+        if: ${{ !env.ACT }}
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Setup Ruby & RubyGems
+        if: ${{ !env.ACT }}
         uses: ruby/setup-ruby@e65c17d16e57e481586a6a5a0282698790062f92 # v1.300.0
         with:
           ruby-version: ${{ matrix.ruby }}
@@ -94,5 +72,6 @@ jobs:
         if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' && !env.ACT }}
         run: bundle exec appraisal ${{ matrix.appraisal }} install
 
-      - name: Checks the kitchen sink via ${{ matrix.exec_cmd }}
-        run: bundle exec ${{ matrix.exec_cmd }}
+      - name: Tests for ${{ matrix.ruby }} via ${{ matrix.exec_cmd }}
+        if: ${{ !env.ACT }}
+        run: bundle exec appraisal ${{ matrix.appraisal }} bundle exec ${{ matrix.exec_cmd }}
