@@ -151,8 +151,7 @@ repository:
 # Supported values: org, project, org_and_project
 # Default (when key is absent): org_and_project
 readme:
-  top_logos: related-org,ruby,org
-  top_logo_mode: project
+  top_logos: related-org,ruby,project
   # Sections to preserve from the destination README during template merging.
   # These section headings (case-insensitive) will keep the destination body
   # instead of being overwritten by the template. Default when absent:
@@ -371,7 +370,7 @@ files:
 #     add_template_only_nodes: false
 
 kettle-jem:
-  version: "1.0.0"
+  version: "7.0.0"
   checksums:
     ".aiignore.example": "48a5dfdd93afd1a15fdce39cc28ca9920263f00018b0968ab031fa744521e5ce"
     ".config/mise/env.sh": "aeea5a2ab489ba6e5467ae8de6e386ec8c8fe4ff31a044e69d0cd6a092dd6654"
