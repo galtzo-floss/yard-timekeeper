@@ -1,9 +1,11 @@
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-floss-i]][🖼️galtzo-floss] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang]
+[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-floss-i]][🖼️galtzo-floss] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![yard-timekeeper Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-floss-yard-timekeeper-i]][🖼️galtzo-floss-yard-timekeeper]
 
 [🖼️galtzo-floss-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
 [🖼️galtzo-floss]: https://discord.gg/3qme4XHNKN
 [🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
 [🖼️ruby-lang]: https://www.ruby-lang.org/
+[🖼️galtzo-floss-yard-timekeeper-i]: https://logos.galtzo.com/assets/images/galtzo-floss/yard-timekeeper/avatar-192px.svg
+[🖼️galtzo-floss-yard-timekeeper]: https://github.com/galtzo-floss/yard-timekeeper
 
 # 🕰️ Yard::Timekeeper
 
@@ -62,19 +64,7 @@ Compatible with MRI Ruby 3.2.0+, and concordant releases of JRuby, and TruffleRu
 |------------------------------------------------|--------------------------------------------------------|
 | 👟 Check it out! | ✨ [github.com/appraisal-rb/appraisal2][💎appraisal2] ✨ |
 
-<details markdown="1">
-<summary>StructuredMerge package family</summary>
 
-This gem is part of the StructuredMerge Ruby package family. The implementation inventory, layering model, and backend notes live in the [root package-family guide][sm-family-guide]. Shared behavior is defined by the [StructuredMerge fixtures][sm-family-fixtures] and implemented by the [Go][sm-family-go], [Ruby][sm-family-ruby], [Rust][sm-family-rust], and [TypeScript][sm-family-typescript] repositories.
-
-</details>
-
-[sm-family-guide]: https://github.com/structuredmerge/structuredmerge-ruby#package-family
-[sm-family-fixtures]: https://github.com/structuredmerge/structuredmerge-fixtures
-[sm-family-go]: https://github.com/structuredmerge/structuredmerge-go
-[sm-family-ruby]: https://github.com/structuredmerge/structuredmerge-ruby
-[sm-family-rust]: https://github.com/structuredmerge/structuredmerge-rust
-[sm-family-typescript]: https://github.com/structuredmerge/structuredmerge-typescript
 
 ### Federated DVCS
 
