@@ -30,24 +30,17 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Security
 
-## [1.0.1] - 2025-08-24
-- TAG: [v1.0.1][1.0.1t]
-- COVERAGE: 100.00% -- 130/130 lines in 7 files
-- BRANCH COVERAGE: 96.00% -- 48/50 branches in 7 files
-- 100% documented
-### Fixed
-- bugfix: oopsie
+## [0.1.0] - 2026-05-23
 
-## [1.0.0] - 2025-08-24
-- TAG: [v1.0.0][1.0.0t]
-- COVERAGE: 100.00% -- 130/130 lines in 7 files
-- BRANCH COVERAGE: 96.00% -- 48/50 branches in 7 files
-- 100% documented
+- TAG: [v0.1.0][0.1.0t]
+- COVERAGE: 100.00% -- 72/72 lines in 2 files
+- BRANCH COVERAGE: 96.15% -- 25/26 branches in 2 files
+- 15.00% documented
+
 ### Added
+
 - Initial release
 
-[Unreleased]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/compare/v1.0.0...HEAD
-[1.0.0]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/compare/a427c302df09cfe4253a7c8d400333f9a4c1a208...v1.0.0
-[1.0.0t]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/tags/v1.0.0
-[1.0.1]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/compare/v1.0.0...v1.0.1
-[1.0.1t]: https://gitlab.com/galtzo-floss/yard-timekeeper/-/tags/v1.0.1
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/galtzo-floss/yard-timekeeper/compare/bffde1dbf4ceb71a29a72b5b2dfb79622a14417b...v0.1.0
+[0.1.0t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.1.0

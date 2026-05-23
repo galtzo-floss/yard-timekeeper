@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Yard::Timekeeper
+  
+    &mdash; Documentation by YARD 0.9.43
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "Yard::Timekeeper";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Yard.html" title="Yard (module)">Yard</a></span></span>
+     &raquo; 
+    <span class="title">Timekeeper</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Yard::Timekeeper
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/yard/timekeeper.rb<span class="defines">,<br>
+  lib/yard/timekeeper/version.rb</span>
+
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Timekeeper/Version.html" title="Yard::Timekeeper::Version (module)">Version</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Timekeeper/Error.html" title="Yard::Timekeeper::Error (class)">Error</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="RAKE_INTEGRATIONS-constant" class="">RAKE_INTEGRATIONS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="RAKE_INTEGRATIONS_MUTEX-constant" class="">RAKE_INTEGRATIONS_MUTEX =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Mutex</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span></pre></dd>
+      
+        <dt id="TIMESTAMP_DIFF_LINE_RE-constant" class="">TIMESTAMP_DIFF_LINE_RE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[+-]\s{2}Generated on .+ by\s*\z</span><span class='regexp_end'>/</span></span></pre></dd>
+      
+        <dt id="DIFF_METADATA_PREFIXES-constant" class="">DIFF_METADATA_PREFIXES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>diff --git </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--- </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+++ </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@@ </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Traditional Constant Location</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="Timekeeper/Version.html" title="Yard::Timekeeper::Version (module)">Version</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Timekeeper/Version.html#VERSION-constant" title="Yard::Timekeeper::Version::VERSION (constant)">VERSION</a></span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#__reset_rake_integrations__-class_method" title="__reset_rake_integrations__ (class method)">.<strong>__reset_rake_integrations__</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changed_docs_files-class_method" title="changed_docs_files (class method)">.<strong>changed_docs_files</strong>(root)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enabled%3F-class_method" title="enabled? (class method)">.<strong>enabled?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#git_diff-class_method" title="git_diff (class method)">.<strong>git_diff</strong>(path, root)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#git_root-class_method" title="git_root (class method)">.<strong>git_root</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_rake_tasks!-class_method" title="install_rake_tasks! (class method)">.<strong>install_rake_tasks!</strong>(yard_task_name = :yard)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#postprocess_html_docs-class_method" title="postprocess_html_docs (class method)">.<strong>postprocess_html_docs</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#restore_file-class_method" title="restore_file (class method)">.<strong>restore_file</strong>(path, root)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_at_exit-class_method" title="run_at_exit (class method)">.<strong>run_at_exit</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timestamp_only_diff%3F-class_method" title="timestamp_only_diff? (class method)">.<strong>timestamp_only_diff?</strong>(diff_text)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="__reset_rake_integrations__-class_method">
+  
+    .<strong>__reset_rake_integrations__</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid___reset_rake_integrations__'>__reset_rake_integrations__</span>
+  <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS_MUTEX-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS_MUTEX (constant)">RAKE_INTEGRATIONS_MUTEX</a></span></span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS (constant)">RAKE_INTEGRATIONS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span> <span class='rbrace'>}</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="changed_docs_files-class_method">
+  
+    .<strong>changed_docs_files</strong>(root)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_changed_docs_files'>changed_docs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>diff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--name-only</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--relative</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>docs</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+
+  <span class='id identifier rubyid_stdout'>stdout</span><span class='period'>.</span><span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:strip</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:empty?</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+  <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enabled?-class_method">
+  
+    .<strong>enabled?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enabled?'>enabled?</span>
+  <span class='op'>!</span><span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>YARD_TIMEKEEPER_DISABLE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>false</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>true</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="git_diff-class_method">
+  
+    .<strong>git_diff</strong>(path, root)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_git_diff'>git_diff</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid__status'>_status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>diff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--no-ext-diff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--no-color</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--unified=0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span>
+    <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='comma'>,</span>
+  <span class='rparen'>)</span>
+  <span class='id identifier rubyid_stdout'>stdout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="git_root-class_method">
+  
+    .<strong>git_root</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_git_root'>git_root</span>
+  <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rev-parse</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--show-toplevel</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+
+  <span class='id identifier rubyid_stdout'>stdout</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
+<span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="install_rake_tasks!-class_method">
+  
+    .<strong>install_rake_tasks!</strong>(yard_task_name = :yard)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_install_rake_tasks!'>install_rake_tasks!</span><span class='lparen'>(</span><span class='id identifier rubyid_yard_task_name'>yard_task_name</span> <span class='op'>=</span> <span class='symbol'>:yard</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='period'>.</span><span class='id identifier rubyid_task_defined?'>task_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_yard_task_name'>yard_task_name</span><span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS_MUTEX-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS_MUTEX (constant)">RAKE_INTEGRATIONS_MUTEX</a></span></span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_yard_task_name'>yard_task_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS (constant)">RAKE_INTEGRATIONS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span>
+      <span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='id identifier rubyid_yard_task_name'>yard_task_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_enhance'>enhance</span> <span class='lbrace'>{</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../Yard.html" title="Yard (module)">Yard</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Yard::Timekeeper (module)">Timekeeper</a></span></span><span class='period'>.</span><span class='id identifier rubyid_postprocess_html_docs'><span class='object_link'><a href="#postprocess_html_docs-class_method" title="Yard::Timekeeper.postprocess_html_docs (method)">postprocess_html_docs</a></span></span> <span class='rbrace'>}</span>
+      <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS (constant)">RAKE_INTEGRATIONS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="postprocess_html_docs-class_method">
+  
+    .<strong>postprocess_html_docs</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_postprocess_html_docs'>postprocess_html_docs</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_enabled?'>enabled?</span>
+
+  <span class='id identifier rubyid_docs_dir'>docs_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>docs</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_docs_dir'>docs_dir</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_git_root'>git_root</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span>
+
+  <span class='id identifier rubyid_changed_docs_files'>changed_docs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_relative_path'>relative_path</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.html</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_timestamp_only_diff?'>timestamp_only_diff?</span><span class='lparen'>(</span><span class='id identifier rubyid_git_diff'>git_diff</span><span class='lparen'>(</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_restore_file'>restore_file</span><span class='lparen'>(</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>rescue</span> <span class='const'>StandardError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+  <span class='id identifier rubyid_warn'>warn</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Yard::Timekeeper.postprocess_html_docs failed: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="restore_file-class_method">
+  
+    .<strong>restore_file</strong>(path, root)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_restore_file'>restore_file</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid__stdout'>_stdout</span><span class='comma'>,</span> <span class='id identifier rubyid__stderr'>_stderr</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>checkout</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+<span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_at_exit-class_method">
+  
+    .<strong>run_at_exit</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_at_exit'>run_at_exit</span>
+  <span class='id identifier rubyid_postprocess_html_docs'>postprocess_html_docs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="timestamp_only_diff?-class_method">
+  
+    .<strong>timestamp_only_diff?</strong>(diff_text)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_timestamp_only_diff?'>timestamp_only_diff?</span><span class='lparen'>(</span><span class='id identifier rubyid_diff_text'>diff_text</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_diff_text'>diff_text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_change_lines'>change_lines</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_diff_text'>diff_text</span><span class='period'>.</span><span class='id identifier rubyid_each_line'>each_line</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#DIFF_METADATA_PREFIXES-constant" title="Yard::Timekeeper::DIFF_METADATA_PREFIXES (constant)">DIFF_METADATA_PREFIXES</a></span></span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_prefix'>prefix</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#TIMESTAMP_DIFF_LINE_RE-constant" title="Yard::Timekeeper::TIMESTAMP_DIFF_LINE_RE (constant)">TIMESTAMP_DIFF_LINE_RE</a></span></span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_change_lines'>change_lines</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_line'>line</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_change_lines'>change_lines</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>2</span> <span class='op'>&amp;&amp;</span>
+    <span class='id identifier rubyid_change_lines'>change_lines</span><span class='period'>.</span><span class='id identifier rubyid_one?'>one?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='op'>&amp;&amp;</span>
+    <span class='id identifier rubyid_change_lines'>change_lines</span><span class='period'>.</span><span class='id identifier rubyid_one?'>one?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat May 23 16:49:50 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.43 (ruby-4.0.2).
+</div>
+
+    </div>
+  </body>
+</html>
