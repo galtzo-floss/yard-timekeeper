@@ -538,7 +538,7 @@ Thanks for RTFM. ☺️
 | Package | yard-timekeeper |
 | Description | 🕰️ A YARD plugin that post-processes generated docs, detects timestamp-only diffs in tracked HTML files under docs/, and restores those files from git to prevent pointless churn while keeping the footer timestamp on genuinely changed pages. |
 | Homepage | https://github.com/galtzo-floss/yard-timekeeper |
-| Source | https://github.com/galtzo-floss/yard-timekeeper |
+| Source | https://github.com/galtzo-floss/yard-timekeeper/tree/v0.1.0 |
 | License | `MIT` |
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/yard-timekeeper, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
