@@ -83,6 +83,11 @@ jobs:
       - name: Tests for ${{ matrix.ruby }}@current via ${{ matrix.exec_cmd }}
         run: bundle exec appraisal ${{ matrix.appraisal }} bundle exec ${{ matrix.exec_cmd }}
 
+      - name: Verify coverage reports
+        run: |
+          test -s coverage/lcov.info
+          test -s coverage/coverage.xml
+
       # Do SaaS coverage uploads first
       - name: Upload coverage to Coveralls
         if: ${{ !env.ACT }}
@@ -91,17 +96,17 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           file: coverage/lcov.info
           format: lcov
-        continue-on-error: ${{ matrix.experimental != 'false' }}
+        continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
 
       - name: Upload coverage to QLTY
         if: ${{ !env.ACT }}
         uses: qltysh/qlty-action/coverage@a19242102d17e497f437d7466aa01b528537e899 # v2.2.0
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
-          files: coverage/.resultset.json
+          files: coverage/lcov.info
           format: lcov
           skip-errors: false
-        continue-on-error: ${{ matrix.experimental != 'false' }}
+        continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
 
       # Build will fail here if coverage upload fails
       #   which will hopefully be noticed for the lack of code coverage comments
@@ -111,7 +116,7 @@ jobs:
         with:
           use_oidc: true
           disable_search: true
-          fail_ci_if_error: false # optional (default = false)
+          fail_ci_if_error: true
           files: coverage/lcov.info,coverage/coverage.xml
           verbose: true # optional (default = false)
 
@@ -129,7 +134,7 @@ jobs:
           indicators: true
           output: both
           thresholds: '100 100'
-        continue-on-error: ${{ matrix.experimental != 'false' }}
+        continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # v3.0.4
@@ -137,4 +142,4 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
-        continue-on-error: ${{ matrix.experimental != 'false' }}
+        continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
