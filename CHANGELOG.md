@@ -20,6 +20,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Added generated CI coverage for `rdoc` `~> 6.11` and `>= 7.0`.
+
 ### Changed
 
 ### Deprecated
