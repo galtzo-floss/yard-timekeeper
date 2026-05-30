@@ -72,7 +72,9 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.19.5)
-    kettle-dev (2.0.0)
+    kettle-dev (2.0.5)
+      kettle-test (~> 2.0, >= 2.0.1)
+      version_gem (~> 1.1, >= 1.1.9)
     kettle-soup-cover (1.1.2)
       simplecov (~> 0.22)
       simplecov-cobertura (~> 3.0)
@@ -405,7 +407,7 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.19.5) sha256=218a18553e4801d579ca7e0f5bc72bafd776d7397238a1fb4e74db5b0a812c59
-  kettle-dev (2.0.0) sha256=f3cd1a2f8cc4f1fcc573d7e9177644873cfdfe455e26365416b4290ea09490b5
+  kettle-dev (2.0.5) sha256=bcefc71737bbf992cc1651b08571bbbe3d8d75995fea5c4d3f8f932ba8e65f24
   kettle-soup-cover (1.1.2) sha256=2efd61026621f1e2ab40620c138acaa6dea35e4b97aae9ff31968445dbded9f0
   kettle-test (2.0.1) sha256=1aa4ca9eae6bce39b2d54a60fef20dfe82de32ea37b9114047f6117388dee5b9
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
