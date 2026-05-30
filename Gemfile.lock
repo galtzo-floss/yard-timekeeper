@@ -63,8 +63,8 @@ GEM
     gem_bench (2.0.5)
       bundler (>= 1.14)
       version_gem (~> 1.1, >= 1.1.4)
-    gitmoji-regex (1.0.3)
-      version_gem (~> 1.1, >= 1.1.8)
+    gitmoji-regex (2.0.0)
+      version_gem (~> 1.1, >= 1.1.9)
     io-console (0.8.2)
     irb (1.18.0)
       pp (>= 0.6.0)
@@ -346,7 +346,7 @@ DEPENDENCIES
   debug (>= 1.1)
   erb (~> 6.0, >= 6.0.4)
   gem_bench (~> 2.0, >= 2.0.5)
-  gitmoji-regex (~> 1.0, >= 1.0.3)
+  gitmoji-regex (~> 2.0, >= 1.0.3)
   irb (~> 1.17)
   kettle-dev (~> 2.0)
   kettle-soup-cover (~> 1.0, >= 1.1.2)
@@ -401,7 +401,7 @@ CHECKSUMS
   dry-types (1.9.1) sha256=baebeecdb9f8395d6c9d227b62011279440943e3ef2468fe8ccc1ba11467f178
   erb (6.0.4) sha256=38e3803694be357fe2bfe312487c74beaf9fb4e5beb3e22498952fe1645b95d9
   gem_bench (2.0.5) sha256=0dc0fb44a5a5eb7b2f5c1c68a5b0164d72007132822c012bac3abe976b199ead
-  gitmoji-regex (1.0.3) sha256=538c6f49f5af6dc36d1630edb89a5a66f6e14ec5850d7fd071e0331f940e553f
+  gitmoji-regex (2.0.0) sha256=cffeeadaedc1a4fda390d5d1e93b0809feceb444087a84e227add8d1aac5166f
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.19.5) sha256=218a18553e4801d579ca7e0f5bc72bafd776d7397238a1fb4e74db5b0a812c59
@@ -495,7 +495,7 @@ CHECKSUMS
   version_gem (1.1.9) sha256=0c1a0962ae543c84a00889bb018d9f14d8f8af6029d26b295d98774e3d2eb9a4
   yaml-converter (0.1.0) sha256=3a8a6ce675eec8adc7ee67697ee0567e2153cad974b601c062c3a25f545ecc77
   yard (0.9.43) sha256=cf8733a8f0485df2a162927e9b5f182215a61f6d22de096b8f402c726a1c5821
-  yard-fence (0.9.1)
+  yard-fence (0.9.1) sha256=48e24520c2a9b080e52b6477a4341f8a1691c82d7171529128e9ce5f2cd8d63c
   yard-junk (0.1.0) sha256=e85fe2ec1afa47313decd333447b53458cb1ed49b510b70015fdc3041a94bcdd
   yard-relative_markdown_links (0.6.0) sha256=3e5ffa85cbad9bac70bee5421774b190fb25d3bdf489323a5b3534f647d1a70e
   yard-timekeeper (0.1.0)
