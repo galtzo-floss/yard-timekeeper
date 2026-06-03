@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.0] - 2026-06-03
+
+- TAG: [v0.2.0][0.2.0t]
+- COVERAGE: 100.00% -- 72/72 lines in 2 files
+- BRANCH COVERAGE: 96.15% -- 25/26 branches in 2 files
+- 15.00% documented
+
+### Added
+
 - Added generated CI coverage for `rdoc` `~> 6.11` and `>= 7.0`.
 - Added release checksum files for the `v0.1.0` gem package.
 - Added generated StructuredMerge git driver configuration and repo-local
@@ -40,8 +59,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - Updated local workspace dependency wiring to use released `nomono` and
   generated local override Gemfiles.
 
-### Deprecated
-
 ### Removed
 
 - Removed generated binstubs that are now resolved through the active bundle.
@@ -51,8 +68,6 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - Pinned the auto-assign workflow action to the immutable v4 SHA.
-
-### Security
 
 ## [0.1.0] - 2026-05-23
 
@@ -65,6 +80,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.1.0...v0.2.0
+[0.2.0t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.0
 [0.1.0]: https://github.com/galtzo-floss/yard-timekeeper/compare/bffde1dbf4ceb71a29a72b5b2dfb79622a14417b...v0.1.0
 [0.1.0t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.1.0
