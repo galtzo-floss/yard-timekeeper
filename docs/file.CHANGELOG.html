@@ -6,7 +6,7 @@
 <title>
   File: CHANGELOG
   
-    &mdash; Documentation by YARD 0.9.43
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
@@ -74,13 +74,45 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="added">Added</h3>
 
+<ul>
+  <li>Added generated CI coverage for <code>rdoc</code> <code>~&gt; 6.11</code> and <code>&gt;= 7.0</code>.</li>
+  <li>Added release checksum files for the <code>v0.1.0</code> gem package.</li>
+  <li>Added generated StructuredMerge git driver configuration and repo-local<br>
+template metadata under <code>.structuredmerge/</code>.</li>
+  <li>Added generated documentation pages for IRP and YAML citation metadata.</li>
+</ul>
+
 <h3 id="changed">Changed</h3>
+
+<ul>
+  <li>Refreshed generated CI workflows, including coverage report verification,<br>
+configurable coverage summary thresholds, and updated Ruby/Appraisal matrix<br>
+wiring.</li>
+  <li>Updated generated documentation dependencies to require <code>yard</code> &gt;= 0.9.44,<br>
+<code>yard-fence</code> &gt;= 0.9.2, and <code>yard-yaml</code> &gt;= 0.2.0.</li>
+  <li>Updated generated development, test, style, and coverage dependency floors,<br>
+including <code>kettle-dev</code> &gt;= 2.0.8, <code>kettle-test</code> &gt;= 2.0.3,<br>
+<code>kettle-soup-cover</code> &gt;= 2.0.1, <code>gitmoji-regex</code> &gt;= 2.0.1, and current<br>
+RuboCop-LTS style dependencies.</li>
+  <li>Updated local workspace dependency wiring to use released <code>nomono</code> and<br>
+generated local override Gemfiles.</li>
+</ul>
 
 <h3 id="deprecated">Deprecated</h3>
 
 <h3 id="removed">Removed</h3>
 
+<ul>
+  <li>Removed generated binstubs that are now resolved through the active bundle.</li>
+  <li>Removed the legacy TruffleRuby 23.1 and CodeQL workflow files from generated<br>
+CI.</li>
+</ul>
+
 <h3 id="fixed">Fixed</h3>
+
+<ul>
+  <li>Pinned the auto-assign workflow action to the immutable v4 SHA.</li>
+</ul>
 
 <h3 id="security">Security</h3>
 
@@ -104,9 +136,9 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat May 23 16:49:50 2026 by
+  Generated on Wed Jun  3 04:08:29 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.43 (ruby-4.0.2).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

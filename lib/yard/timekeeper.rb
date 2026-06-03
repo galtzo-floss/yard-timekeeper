@@ -20,7 +20,7 @@ module Yard
       "index ",
       "--- ",
       "+++ ",
-      "@@ ",
+      "@@ "
     ].freeze
 
     class << self
@@ -39,7 +39,7 @@ module Yard
 
           restore_file(relative_path, root)
         end
-      rescue StandardError => e
+      rescue => e
         warn("Yard::Timekeeper.postprocess_html_docs failed: #{e.class}: #{e.message}")
       end
 
@@ -97,7 +97,7 @@ module Yard
           "--unified=0",
           "--",
           path,
-          chdir: root,
+          chdir: root
         )
         stdout
       end

@@ -21,14 +21,36 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 
 - Added generated CI coverage for `rdoc` `~> 6.11` and `>= 7.0`.
+- Added release checksum files for the `v0.1.0` gem package.
+- Added generated StructuredMerge git driver configuration and repo-local
+  template metadata under `.structuredmerge/`.
+- Added generated documentation pages for IRP and YAML citation metadata.
 
 ### Changed
+
+- Refreshed generated CI workflows, including coverage report verification,
+  configurable coverage summary thresholds, and updated Ruby/Appraisal matrix
+  wiring.
+- Updated generated documentation dependencies to require `yard` >= 0.9.44,
+  `yard-fence` >= 0.9.2, and `yard-yaml` >= 0.2.0.
+- Updated generated development, test, style, and coverage dependency floors,
+  including `kettle-dev` >= 2.0.8, `kettle-test` >= 2.0.3,
+  `kettle-soup-cover` >= 2.0.1, `gitmoji-regex` >= 2.0.1, and current
+  RuboCop-LTS style dependencies.
+- Updated local workspace dependency wiring to use released `nomono` and
+  generated local override Gemfiles.
 
 ### Deprecated
 
 ### Removed
 
+- Removed generated binstubs that are now resolved through the active bundle.
+- Removed the legacy TruffleRuby 23.1 and CodeQL workflow files from generated
+  CI.
+
 ### Fixed
+
+- Pinned the auto-assign workflow action to the immutable v4 SHA.
 
 ### Security
 

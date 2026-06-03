@@ -22,11 +22,12 @@ concurrency:
 jobs:
   test:
     if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
-    name: Specs ${{ matrix.ruby }}@${{ matrix.framework_version }}
+    name: Specs ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}
     runs-on: ubuntu-latest
     continue-on-error: ${{ endsWith(matrix.ruby, 'head') }}
     env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}
+      BUNDLE_GEMFILE: ${{ github.workspace }}/Appraisal.root.gemfile
+      KJ_FRAMEWORK_MATRIX_GEM: ${{ matrix.KJ_FRAMEWORK_MATRIX_GEM || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -38,11 +39,12 @@ jobs:
           - default
         bundler:
           - default
-        include:
+        framework:
           - framework_version: "6.11"
-            gemfile: "gemfiles/modular/rdoc/v6_11.gemfile"
+            appraisal: "rdoc-6-11"
+            KJ_FRAMEWORK_MATRIX_GEM: "rdoc"
           - framework_version: "7.0+"
-            gemfile: "gemfiles/modular/rdoc/v7_0_plus.gemfile"
+            appraisal: "rdoc-7-0-plus"
 
     steps:
       - name: Checkout
@@ -56,5 +58,15 @@ jobs:
           bundler: "${{ matrix.bundler }}"
           bundler-cache: true
 
-      - name: Tests for ${{ matrix.ruby }}@${{ matrix.framework_version }}
-        run: bundle exec kettle-test
+      - name: "[Attempt 1] Appraisal for ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}"
+        id: bundleAppraisalAttempt1
+        run: bundle exec appraisal ${{ matrix.framework.appraisal }} install
+        continue-on-error: true
+
+      - name: "[Attempt 2] Appraisal for ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}"
+        id: bundleAppraisalAttempt2
+        if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' }}
+        run: bundle exec appraisal ${{ matrix.framework.appraisal }} install
+
+      - name: Tests for ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}
+        run: bundle exec appraisal ${{ matrix.framework.appraisal }} bundle exec kettle-test

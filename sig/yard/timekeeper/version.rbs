@@ -6,4 +6,3 @@ module Yard
     VERSION: String
   end
 end
-

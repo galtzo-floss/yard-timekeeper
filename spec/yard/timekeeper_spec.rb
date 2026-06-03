@@ -61,13 +61,13 @@ RSpec.describe Yard::Timekeeper do
       status = instance_double(Process::Status, success?: false)
       allow(Open3).to receive(:capture2).and_return(["", status])
 
-      expect(described_class.changed_docs_files("/tmp/project")).to eq([])
+      expect(described_class.changed_docs_files("/tmp/project")).to be_empty
     end
 
     it "returns an empty array when git is unavailable" do
       allow(Open3).to receive(:capture2).and_raise(Errno::ENOENT)
 
-      expect(described_class.changed_docs_files("/tmp/project")).to eq([])
+      expect(described_class.changed_docs_files("/tmp/project")).to be_empty
     end
   end
 
@@ -83,7 +83,7 @@ RSpec.describe Yard::Timekeeper do
           "--unified=0",
           "--",
           "docs/index.html",
-          chdir: "/tmp/project",
+          chdir: "/tmp/project"
         ).and_return(["diff output", status])
 
       expect(described_class.git_diff("docs/index.html", "/tmp/project")).to eq("diff output")
@@ -183,12 +183,12 @@ RSpec.describe Yard::Timekeeper do
 
         allow(described_class).to receive_messages(
           git_root: dir,
-          restore_file: true,
+          restore_file: true
         )
         allow(described_class).to receive(:changed_docs_files).with(dir).and_return([
           "docs/index.html",
           "docs/file.README.html",
-          "docs/style.css",
+          "docs/style.css"
         ])
         allow(described_class).to receive(:git_diff).with("docs/index.html", dir).and_return(<<~DIFF)
           @@ -1166 +1166 @@
