@@ -22,13 +22,15 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 ## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
 `yard-timekeeper` keeps checked-in YARD HTML stable by restoring files whose
-only change is the generated footer timestamp.
+only changes are generated footer churn.
 
 Just the important bits:
 
 - It postprocesses generated `docs/**/*.html` files after YARD finishes.
 - It only restores files that are already tracked in git and only when the diff
-  is timestamp-only.
+  is limited to generated footer metadata.
+- It treats YARD footer timestamp, YARD version, and Ruby version changes as
+  generated churn, because those do not represent documentation content changes.
 - Real content changes are preserved.
 - The supported workflow is `rake yard`; raw `yard` / `bin/yard` does not run
   the explicit postprocess hook.
@@ -127,20 +129,32 @@ Yard::Timekeeper.install_rake_tasks!(:yard)
 ```
 
 `yard-timekeeper` runs after YARD generates HTML and checks git diffs for tracked
-files under `docs/`. If a file's only change is the footer line:
+files under `docs/`. If a file's only changes are generated footer metadata:
 
 ```text
 Generated on ...
+0.9.44 (ruby-4.0.5).
 ```
 
 then the plugin restores that file from git so the docs site does not churn for
-timestamp-only changes.
+toolchain-only changes.
+
+This protects against the common case where rebuilding docs changes only:
+
+- the generation timestamp
+- the YARD generator version
+- the Ruby version in the YARD footer
+
+Those values are useful when the page content changes, but they are not useful
+as standalone repository diffs.
 
 Notes:
 
 - It only affects files already tracked in git.
 - It is most useful for checked-in `docs/` sites.
 - Files with any real content changes keep their fresh timestamp.
+- Files with source, README, changelog, API, or rendered markup changes are not
+  restored just because their footer also changed.
 
 Environment toggles:
 
@@ -153,6 +167,10 @@ Generate docs through rake so the postprocess runs after YARD finishes:
 ```console
 bin/rake yard
 ```
+
+After generation, `yard-timekeeper` examines each changed tracked HTML file
+under `docs/`. Footer-only churn is restored from git automatically. Pages with
+real rendered content changes remain modified, including their fresh footer.
 
 If your project also exposes `bin/yard`, do not rely on it for the full docs
 workflow. It runs YARD, but it does not run
