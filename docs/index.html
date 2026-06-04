@@ -84,14 +84,16 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 </h2>
 
 <p><code>yard-timekeeper</code> keeps checked-in YARD HTML stable by restoring files whose<br>
-only change is the generated footer timestamp.</p>
+only changes are generated footer churn.</p>
 
 <p>Just the important bits:</p>
 
 <ul>
   <li>It postprocesses generated <code>docs/**/*.html</code> files after YARD finishes.</li>
   <li>It only restores files that are already tracked in git and only when the diff<br>
-is timestamp-only.</li>
+is limited to generated footer metadata.</li>
+  <li>It treats YARD footer timestamp, YARD version, and Ruby version changes as<br>
+generated churn, because those do not represent documentation content changes.</li>
   <li>Real content changes are preserved.</li>
   <li>The supported workflow is <code>rake yard</code>; raw <code>yard</code> / <code>bin/yard</code> does not run<br>
 the explicit postprocess hook.</li>
@@ -142,7 +144,7 @@ the explicit postprocess hook.</li>
     <tr>
       <td>Source</td>
       <td>
-<a href="https://gitlab.com/galtzo-floss/yard-timekeeper"><img src="https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&amp;logo=Gitlab&amp;logoColor=orange" alt="Source on GitLab.com"></a> <a href="https://codeberg.org/galtzo-floss/yard-timekeeper"><img src="https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&amp;logo=CodeBerg&amp;logoColor=blue" alt="Source on CodeBerg.org"></a> <a href="https://github.com/galtzo-floss/yard-timekeeper"><img src="https://img.shields.io/badge/GitHub-238636?style=for-the-badge&amp;logo=Github&amp;logoColor=green" alt="Source on Github.com"></a> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.shields.io/badge/KLOC-0.072-FFDD67.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=blue" alt="The best SHA: dQw4w9WgXcQ!"></a>
+<a href="https://gitlab.com/galtzo-floss/yard-timekeeper"><img src="https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&amp;logo=Gitlab&amp;logoColor=orange" alt="Source on GitLab.com"></a> <a href="https://codeberg.org/galtzo-floss/yard-timekeeper"><img src="https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&amp;logo=CodeBerg&amp;logoColor=blue" alt="Source on CodeBerg.org"></a> <a href="https://github.com/galtzo-floss/yard-timekeeper"><img src="https://img.shields.io/badge/GitHub-238636?style=for-the-badge&amp;logo=Github&amp;logoColor=green" alt="Source on Github.com"></a> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.shields.io/badge/KLOC-0.083-FFDD67.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=blue" alt="The best SHA: dQw4w9WgXcQ!"></a>
 </td>
     </tr>
     <tr>
@@ -318,13 +320,25 @@ Yard::Timekeeper.install_rake_tasks!(:yard)
 </code></pre>
 
 <p><code>yard-timekeeper</code> runs after YARD generates HTML and checks git diffs for tracked<br>
-files under <code>docs/</code>. If a file’s only change is the footer line:</p>
+files under <code>docs/</code>. If a file’s only changes are generated footer metadata:</p>
 
 <pre class="code language-text"><code class="language-text">Generated on ...
+0.9.44 (ruby-4.0.5).
 </code></pre>
 
 <p>then the plugin restores that file from git so the docs site does not churn for<br>
-timestamp-only changes.</p>
+toolchain-only changes.</p>
+
+<p>This protects against the common case where rebuilding docs changes only:</p>
+
+<ul>
+  <li>the generation timestamp</li>
+  <li>the YARD generator version</li>
+  <li>the Ruby version in the YARD footer</li>
+</ul>
+
+<p>Those values are useful when the page content changes, but they are not useful<br>
+as standalone repository diffs.</p>
 
 <p>Notes:</p>
 
@@ -332,6 +346,8 @@ timestamp-only changes.</p>
   <li>It only affects files already tracked in git.</li>
   <li>It is most useful for checked-in <code>docs/</code> sites.</li>
   <li>Files with any real content changes keep their fresh timestamp.</li>
+  <li>Files with source, README, changelog, API, or rendered markup changes are not<br>
+restored just because their footer also changed.</li>
 </ul>
 
 <p>Environment toggles:</p>
@@ -347,6 +363,10 @@ timestamp-only changes.</p>
 
 <pre class="code language-console"><code class="language-console">bin/rake yard
 </code></pre>
+
+<p>After generation, <code>yard-timekeeper</code> examines each changed tracked HTML file<br>
+under <code>docs/</code>. Footer-only churn is restored from git automatically. Pages with<br>
+real rendered content changes remain modified, including their fresh footer.</p>
 
 <p>If your project also exposes <code>bin/yard</code>, do not rely on it for the full docs<br>
 workflow. It runs YARD, but it does not run<br>
@@ -553,14 +573,14 @@ Please consider sponsoring me or the project.</p>
 | Package | yard-timekeeper |<br>
 | Description | 🕰️ A YARD plugin that post-processes generated docs, detects timestamp-only diffs in tracked HTML files under docs/, and restores those files from git to prevent pointless churn while keeping the footer timestamp on genuinely changed pages. |<br>
 | Homepage | https://github.com/galtzo-floss/yard-timekeeper |<br>
-| Source | https://github.com/galtzo-floss/yard-timekeeper/tree/v0.1.0 |<br>
+| Source | https://github.com/galtzo-floss/yard-timekeeper/tree/v0.2.0 |<br>
 | License | <code>MIT</code> |<br>
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/yard-timekeeper, https://www.buymeacoffee.com/pboling |<br>
 <!-- kettle-jem:metadata:end --></p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jun  3 03:56:55 2026 by
+  Generated on Thu Jun  4 00:03:41 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

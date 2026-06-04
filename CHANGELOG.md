@@ -28,11 +28,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [0.2.1] - 2026-06-04
+
+- TAG: [v0.2.1][0.2.1t]
+- COVERAGE: 98.80% -- 82/83 lines in 2 files
+- BRANCH COVERAGE: 93.33% -- 28/30 branches in 2 files
+- 20.83% documented
+
+### Fixed
+
 - Treated YARD generator version and Ruby version footer changes as generated
   documentation churn, so footer-only docs diffs are restored even when the
   toolchain version changes.
-
-### Security
 
 ## [0.2.0] - 2026-06-03
 
@@ -84,7 +93,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.0...v0.2.1
+[0.2.1t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.1
 [0.2.0]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.1.0...v0.2.0
 [0.2.0t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.0
 [0.1.0]: https://github.com/galtzo-floss/yard-timekeeper/compare/bffde1dbf4ceb71a29a72b5b2dfb79622a14417b...v0.1.0
