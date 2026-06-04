@@ -28,6 +28,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Treated YARD generator version and Ruby version footer changes as generated
+  documentation churn, so footer-only docs diffs are restored even when the
+  toolchain version changes.
+
 ### Security
 
 ## [0.2.0] - 2026-06-03

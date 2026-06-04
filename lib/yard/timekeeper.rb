@@ -15,6 +15,12 @@ module Yard
     RAKE_INTEGRATIONS_MUTEX = Mutex.new
 
     TIMESTAMP_DIFF_LINE_RE = /\A[+-]\s{2}Generated on .+ by\s*\z/
+    GENERATOR_VERSION_DIFF_LINE_RE = /
+      \A[+-]\s{2}
+      \d+(?:\.\d+)+(?:[.\w-][.\w-]*)?
+      \s\(ruby-[^)]+\)\.\s*
+      \z
+    /x
     DIFF_METADATA_PREFIXES = [
       "diff --git ",
       "index ",
@@ -111,14 +117,33 @@ module Yard
           next if DIFF_METADATA_PREFIXES.any? { |prefix| line.start_with?(prefix) }
           next if line.strip.empty?
 
-          return false unless line.match?(TIMESTAMP_DIFF_LINE_RE)
+          return false unless footer_churn_line?(line)
 
           change_lines << line
         end
 
-        change_lines.size == 2 &&
-          change_lines.one? { |line| line.start_with?("-") } &&
-          change_lines.one? { |line| line.start_with?("+") }
+        balanced_footer_churn?(change_lines)
+      end
+
+      def footer_churn_line?(line)
+        line.match?(TIMESTAMP_DIFF_LINE_RE) || line.match?(GENERATOR_VERSION_DIFF_LINE_RE)
+      end
+
+      def balanced_footer_churn?(change_lines)
+        removed_lines = change_lines.select { |line| line.start_with?("-") }
+        added_lines = change_lines.select { |line| line.start_with?("+") }
+
+        removed_lines.size == added_lines.size &&
+          removed_lines.size.between?(1, 2) &&
+          removed_lines.map { |line| footer_churn_kind(line) }.sort ==
+            added_lines.map { |line| footer_churn_kind(line) }.sort
+      end
+
+      def footer_churn_kind(line)
+        return :timestamp if line.match?(TIMESTAMP_DIFF_LINE_RE)
+        return :generator_version if line.match?(GENERATOR_VERSION_DIFF_LINE_RE)
+
+        :unknown
       end
 
       def restore_file(path, root)

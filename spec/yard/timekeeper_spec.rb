@@ -109,6 +109,52 @@ RSpec.describe Yard::Timekeeper do
       expect(described_class.timestamp_only_diff?(diff)).to be(true)
     end
 
+    it "matches a footer diff containing timestamp and Ruby version changes" do
+      diff = <<~DIFF
+        diff --git a/docs/index.html b/docs/index.html
+        index abc123..def456 100644
+        --- a/docs/index.html
+        +++ b/docs/index.html
+        @@ -1166,3 +1166,3 @@
+        -  Generated on Wed Jun  3 19:00:56 2026 by
+        +  Generated on Wed Jun  3 23:38:10 2026 by
+        -  0.9.44 (ruby-4.0.4).
+        +  0.9.44 (ruby-4.0.5).
+      DIFF
+
+      expect(described_class.timestamp_only_diff?(diff)).to be(true)
+    end
+
+    it "matches a footer diff containing timestamp and YARD version changes" do
+      diff = <<~DIFF
+        diff --git a/docs/index.html b/docs/index.html
+        index abc123..def456 100644
+        --- a/docs/index.html
+        +++ b/docs/index.html
+        @@ -1166,3 +1166,3 @@
+        -  Generated on Wed Jun  3 19:00:56 2026 by
+        +  Generated on Wed Jun  3 23:38:10 2026 by
+        -  0.9.44 (ruby-4.0.5).
+        +  0.9.45 (ruby-4.0.5).
+      DIFF
+
+      expect(described_class.timestamp_only_diff?(diff)).to be(true)
+    end
+
+    it "matches a footer diff containing only YARD and Ruby version changes" do
+      diff = <<~DIFF
+        diff --git a/docs/index.html b/docs/index.html
+        index abc123..def456 100644
+        --- a/docs/index.html
+        +++ b/docs/index.html
+        @@ -1168 +1168 @@
+        -  0.9.44 (ruby-4.0.4).
+        +  0.9.45 (ruby-4.0.5).
+      DIFF
+
+      expect(described_class.timestamp_only_diff?(diff)).to be(true)
+    end
+
     it "ignores diff metadata and blank lines while checking timestamp-only changes" do
       diff = <<~DIFF
         diff --git a/docs/index.html b/docs/index.html
@@ -194,6 +240,8 @@ RSpec.describe Yard::Timekeeper do
           @@ -1166 +1166 @@
           -  Generated on Sat Apr 11 01:22:58 2026 by
           +  Generated on Sat Apr 11 01:23:17 2026 by
+          -  0.9.44 (ruby-4.0.4).
+          +  0.9.44 (ruby-4.0.5).
         DIFF
         allow(described_class).to receive(:git_diff).with("docs/file.README.html", dir).and_return(<<~DIFF)
           @@ -10 +10 @@
