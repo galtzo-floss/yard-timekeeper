@@ -20,11 +20,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Added support for JRuby 10.1 and TruffleRuby 34.0.
-
 ### Changed
-
-- Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
 
 ### Deprecated
 
@@ -33,6 +29,21 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.2.2] - 2026-06-22
+
+- TAG: [v0.2.2][0.2.2t]
+- COVERAGE: 97.62% -- 82/84 lines in 3 files
+- BRANCH COVERAGE: 93.33% -- 28/30 branches in 3 files
+- 20.83% documented
+
+### Added
+
+- Added support for JRuby 10.1 and TruffleRuby 34.0.
+
+### Changed
+
+- Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
 
 ## [0.2.1] - 2026-06-04
 
@@ -97,7 +108,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.1...v0.2.2
+[0.2.2t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.2
 [0.2.1]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.0...v0.2.1
 [0.2.1t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.1
 [0.2.0]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.1.0...v0.2.0

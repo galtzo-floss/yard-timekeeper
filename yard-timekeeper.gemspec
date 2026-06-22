@@ -93,11 +93,11 @@ Gem::Specification.new do |spec|
   # Listed files are the relative paths from bindir above.
   spec.executables = []
 
-# kettle-jem:freeze
-# To retain chunks of comments & code during yard-timekeeper templating:
-# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
-# yard-timekeeper will then preserve content between those markers across template runs.
-# kettle-jem:unfreeze
+  # kettle-jem:freeze
+  # To retain chunks of comments & code during yard-timekeeper templating:
+  # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+  # yard-timekeeper will then preserve content between those markers across template runs.
+  # kettle-jem:unfreeze
 
   spec.require_paths = ["lib"]
 
