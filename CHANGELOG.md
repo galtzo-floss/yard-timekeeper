@@ -28,9 +28,18 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Package configured license files in gem release file lists.
-
 ### Security
+
+## [0.2.3] - 2026-07-02
+
+- TAG: [v0.2.3][0.2.3t]
+- COVERAGE: 97.62% -- 82/84 lines in 3 files
+- BRANCH COVERAGE: 93.33% -- 28/30 branches in 3 files
+- 20.83% documented
+
+### Fixed
+
+- Package configured license files in gem release file lists.
 
 ## [0.2.2] - 2026-06-22
 
@@ -110,7 +119,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.2...v0.2.3
+[0.2.3t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.3
 [0.2.2]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.1...v0.2.2
 [0.2.2t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.2
 [0.2.1]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.0...v0.2.1
