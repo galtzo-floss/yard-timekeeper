@@ -141,6 +141,20 @@ RSpec.describe Yard::Timekeeper do
       expect(described_class.timestamp_only_diff?(diff)).to be(true)
     end
 
+    it "matches a title diff containing only the YARD version change" do
+      diff = <<~DIFF
+        diff --git a/docs/index.html b/docs/index.html
+        index abc123..def456 100644
+        --- a/docs/index.html
+        +++ b/docs/index.html
+        @@ -9 +9 @@
+        -    &mdash; Documentation by YARD 0.9.44
+        +    &mdash; Documentation by YARD 0.9.45
+      DIFF
+
+      expect(described_class.timestamp_only_diff?(diff)).to be(true)
+    end
+
     it "matches a footer diff containing only YARD and Ruby version changes" do
       diff = <<~DIFF
         diff --git a/docs/index.html b/docs/index.html
@@ -248,10 +262,12 @@ RSpec.describe Yard::Timekeeper do
           -<p>old</p>
           +<p>new</p>
         DIFF
+        allow(described_class).to receive(:normalize_generated_metadata).with("docs/file.README.html", dir).and_return(false)
 
         described_class.postprocess_html_docs
 
         expect(described_class).to have_received(:restore_file).with("docs/index.html", dir)
+        expect(described_class).to have_received(:normalize_generated_metadata).with("docs/file.README.html", dir)
         expect(described_class).not_to have_received(:restore_file).with("docs/file.README.html", dir)
         expect(described_class).not_to have_received(:restore_file).with("docs/style.css", dir)
       end
@@ -289,6 +305,47 @@ RSpec.describe Yard::Timekeeper do
       allow(Open3).to receive(:capture3).and_raise(Errno::ENOENT)
 
       expect(described_class.restore_file("docs/index.html", "/tmp/project")).to be(false)
+    end
+  end
+
+  describe "::normalize_generated_metadata" do
+    it "restores generated metadata from HEAD while preserving real content changes" do
+      Dir.mktmpdir do |dir|
+        FileUtils.mkdir_p(File.join(dir, "docs"))
+        path = File.join(dir, "docs", "file.CHANGELOG.html")
+        File.write(path, <<~HTML)
+          <title>
+              &mdash; Documentation by YARD 0.9.45
+          </title>
+          <p>new content</p>
+            Generated on Wed Jun  3 23:38:10 2026 by
+            0.9.45 (ruby-4.0.6).
+        HTML
+        allow(described_class).to receive(:tracked_file_content).and_return(<<~HTML)
+          <title>
+              &mdash; Documentation by YARD 0.9.44
+          </title>
+          <p>old content</p>
+            Generated on Wed Jun  3 19:00:56 2026 by
+            0.9.44 (ruby-4.0.5).
+        HTML
+
+        expect(described_class.normalize_generated_metadata("docs/file.CHANGELOG.html", dir)).to be(true)
+        expect(File.read(path)).to eq(<<~HTML)
+          <title>
+              &mdash; Documentation by YARD 0.9.44
+          </title>
+          <p>new content</p>
+            Generated on Wed Jun  3 19:00:56 2026 by
+            0.9.44 (ruby-4.0.5).
+        HTML
+      end
+    end
+
+    it "returns false when the tracked file cannot be read" do
+      allow(described_class).to receive(:tracked_file_content).and_return(nil)
+
+      expect(described_class.normalize_generated_metadata("docs/index.html", "/tmp/project")).to be(false)
     end
   end
 

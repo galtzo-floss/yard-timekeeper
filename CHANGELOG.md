@@ -28,6 +28,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Restored generated YARD title/header metadata from git when rebuilding docs
+  with a newer YARD version, including when the file also has real content
+  changes that should be preserved.
+
 ### Security
 
 ## [0.2.3] - 2026-07-02

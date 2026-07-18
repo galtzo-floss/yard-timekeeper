@@ -14,9 +14,18 @@ module Yard
     RAKE_INTEGRATIONS = {}
     RAKE_INTEGRATIONS_MUTEX = Mutex.new
 
+    TITLE_GENERATOR_DIFF_LINE_RE = /\A[+-].*Documentation by YARD \d+(?:\.\d+)+(?:[.\w-][.\w-]*)?\s*\z/
     TIMESTAMP_DIFF_LINE_RE = /\A[+-]\s{2}Generated on .+ by\s*\z/
-    GENERATOR_VERSION_DIFF_LINE_RE = /
+    FOOTER_GENERATOR_VERSION_DIFF_LINE_RE = /
       \A[+-]\s{2}
+      \d+(?:\.\d+)+(?:[.\w-][.\w-]*)?
+      \s\(ruby-[^)]+\)\.\s*
+      \z
+    /x
+    TITLE_GENERATOR_LINE_RE = /Documentation by YARD \d+(?:\.\d+)+(?:[.\w-][.\w-]*)?/
+    TIMESTAMP_LINE_RE = /\A\s{2}Generated on .+ by\s*\z/
+    FOOTER_GENERATOR_VERSION_LINE_RE = /
+      \A\s{2}
       \d+(?:\.\d+)+(?:[.\w-][.\w-]*)?
       \s\(ruby-[^)]+\)\.\s*
       \z
@@ -41,9 +50,12 @@ module Yard
 
         changed_docs_files(root).each do |relative_path|
           next unless relative_path.end_with?(".html")
-          next unless timestamp_only_diff?(git_diff(relative_path, root))
-
-          restore_file(relative_path, root)
+          diff = git_diff(relative_path, root)
+          if timestamp_only_diff?(diff)
+            restore_file(relative_path, root)
+          else
+            normalize_generated_metadata(relative_path, root)
+          end
         end
       rescue => e
         warn("Yard::Timekeeper.postprocess_html_docs failed: #{e.class}: #{e.message}")
@@ -126,7 +138,9 @@ module Yard
       end
 
       def footer_churn_line?(line)
-        line.match?(TIMESTAMP_DIFF_LINE_RE) || line.match?(GENERATOR_VERSION_DIFF_LINE_RE)
+        line.match?(TITLE_GENERATOR_DIFF_LINE_RE) ||
+          line.match?(TIMESTAMP_DIFF_LINE_RE) ||
+          line.match?(FOOTER_GENERATOR_VERSION_DIFF_LINE_RE)
       end
 
       def balanced_footer_churn?(change_lines)
@@ -140,10 +154,65 @@ module Yard
       end
 
       def footer_churn_kind(line)
+        return :title_generator if line.match?(TITLE_GENERATOR_DIFF_LINE_RE)
         return :timestamp if line.match?(TIMESTAMP_DIFF_LINE_RE)
-        return :generator_version if line.match?(GENERATOR_VERSION_DIFF_LINE_RE)
+        return :footer_generator_version if line.match?(FOOTER_GENERATOR_VERSION_DIFF_LINE_RE)
 
         :unknown
+      end
+
+      def normalize_generated_metadata(path, root)
+        original = tracked_file_content(path, root)
+        return false unless original
+
+        absolute_path = File.join(root, path)
+        return false unless File.file?(absolute_path)
+
+        replacement_lines = generated_metadata_lines(original)
+        return false if replacement_lines.empty?
+
+        current = File.read(absolute_path)
+        changed = false
+        normalized_lines = current.lines.map do |line|
+          kind = generated_metadata_kind(line)
+          replacement = replacement_lines[kind]
+          if replacement && line != replacement
+            changed = true
+            replacement
+          else
+            line
+          end
+        end
+
+        return false unless changed
+
+        File.write(absolute_path, normalized_lines.join)
+        true
+      end
+
+      def tracked_file_content(path, root)
+        stdout, status = Open3.capture2("git", "show", "HEAD:#{path}", chdir: root)
+        return unless status.success?
+
+        stdout
+      rescue Errno::ENOENT
+        nil
+      end
+
+      def generated_metadata_lines(content)
+        content.lines.each_with_object({}) do |line, replacements|
+          kind = generated_metadata_kind(line)
+          replacements[kind] ||= line if kind
+        end
+      end
+
+      def generated_metadata_kind(line)
+        stripped_line = line.strip
+        return :title_generator if stripped_line.match?(TITLE_GENERATOR_LINE_RE)
+        return :timestamp if line.match?(TIMESTAMP_LINE_RE)
+        return :footer_generator_version if line.match?(FOOTER_GENERATOR_VERSION_LINE_RE)
+
+        nil
       end
 
       def restore_file(path, root)
