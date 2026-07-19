@@ -28,11 +28,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [0.2.4] - 2026-07-18
+
+- TAG: [v0.2.4][0.2.4t]
+- COVERAGE: 95.20% -- 119/125 lines in 3 files
+- BRANCH COVERAGE: 86.54% -- 45/52 branches in 3 files
+- 15.62% documented
+
+### Fixed
+
 - Restored generated YARD title/header metadata from git when rebuilding docs
   with a newer YARD version, including when the file also has real content
   changes that should be preserved.
-
-### Security
 
 ## [0.2.3] - 2026-07-02
 
@@ -123,7 +132,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...HEAD
+[0.2.4]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.3...v0.2.4
+[0.2.4t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.4
 [0.2.3]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.2...v0.2.3
 [0.2.3t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.3
 [0.2.2]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.1...v0.2.2
