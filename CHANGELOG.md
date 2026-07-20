@@ -28,6 +28,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Generated YARD title metadata normalization now replaces only the generated
+  `Documentation by YARD ...` text when it appears inline with real HTML markup,
+  preventing `_index.html` content wrapper deletion during docs regeneration.
+
 ### Security
 
 ## [0.2.4] - 2026-07-18

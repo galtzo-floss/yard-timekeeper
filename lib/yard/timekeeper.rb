@@ -176,9 +176,10 @@ module Yard
         normalized_lines = current.lines.map do |line|
           kind = generated_metadata_kind(line)
           replacement = replacement_lines[kind]
-          if replacement && line != replacement
+          normalized_line = replacement ? normalize_generated_metadata_line(line, kind, replacement) : line
+          if replacement && line != normalized_line
             changed = true
-            replacement
+            normalized_line
           else
             line
           end
@@ -202,7 +203,25 @@ module Yard
       def generated_metadata_lines(content)
         content.lines.each_with_object({}) do |line, replacements|
           kind = generated_metadata_kind(line)
-          replacements[kind] ||= line if kind
+          replacements[kind] ||= generated_metadata_value(line, kind) if kind
+        end
+      end
+
+      def generated_metadata_value(line, kind)
+        case kind
+        when :title_generator
+          line[TITLE_GENERATOR_LINE_RE]
+        else
+          line
+        end
+      end
+
+      def normalize_generated_metadata_line(line, kind, replacement)
+        case kind
+        when :title_generator
+          line.sub(TITLE_GENERATOR_LINE_RE, replacement.to_s)
+        else
+          replacement
         end
       end
 

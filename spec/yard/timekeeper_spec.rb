@@ -342,6 +342,33 @@ RSpec.describe Yard::Timekeeper do
       end
     end
 
+    it "normalizes an inline YARD title without deleting surrounding markup" do
+      Dir.mktmpdir do |dir|
+        FileUtils.mkdir_p(File.join(dir, "docs"))
+        path = File.join(dir, "docs", "_index.html")
+        File.write(path, <<~HTML)
+          <body>
+            <div id="content"><h1 class="noborder title">Documentation by YARD 0.9.45</h1>
+            <p>new content</p>
+          </body>
+        HTML
+        allow(described_class).to receive(:tracked_file_content).and_return(<<~HTML)
+          <body>
+              &mdash; Documentation by YARD 0.9.44
+            <p>old content</p>
+          </body>
+        HTML
+
+        expect(described_class.normalize_generated_metadata("docs/_index.html", dir)).to be(true)
+        expect(File.read(path)).to eq(<<~HTML)
+          <body>
+            <div id="content"><h1 class="noborder title">Documentation by YARD 0.9.44</h1>
+            <p>new content</p>
+          </body>
+        HTML
+      end
+    end
+
     it "returns false when the tracked file cannot be read" do
       allow(described_class).to receive(:tracked_file_content).and_return(nil)
 
