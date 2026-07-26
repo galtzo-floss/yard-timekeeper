@@ -20,6 +20,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Documentation linting now has its generated `yard-lint` dependency and severity config available in the local bundle.
+
+
 ### Changed
 
 - kettle-jem-template-20260716-001 - Shim gemspec manifests now include
