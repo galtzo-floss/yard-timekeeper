@@ -2,6 +2,7 @@
 
 # Family libraries
 require "kettle/test/rspec"
+# `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 
 # Library configs
 require_relative "config/debug"
