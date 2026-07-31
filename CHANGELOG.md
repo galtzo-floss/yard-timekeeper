@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.5] - 2026-07-31
+
+- TAG: [v0.2.5][0.2.5t]
+- COVERAGE: 95.52% -- 128/134 lines in 3 files
+- BRANCH COVERAGE: 87.93% -- 51/58 branches in 3 files
+- 20.59% documented
+
+### Added
+
 - Documentation linting now has its generated `yard-lint` dependency and severity config available in the local bundle.
 
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
@@ -64,10 +83,6 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Generated YARD title metadata normalization now replaces only the generated
@@ -110,8 +125,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so packaged template assets are included
   even when the gemspec is loaded from another working directory.
-
-### Security
 
 ## [0.2.4] - 2026-07-18
 
@@ -215,7 +228,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.5...HEAD
+[0.2.5]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...v0.2.5
+[0.2.5t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.5
 [0.2.4]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.3...v0.2.4
 [0.2.4t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.4
 [0.2.3]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.2...v0.2.3

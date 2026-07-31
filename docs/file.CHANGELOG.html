@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.5...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -82,13 +82,127 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="fixed">Fixed</h3>
 
+<h3 id="security">Security</h3>
+
+<h2 id="025---2026-07-31">
+<a href="https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...v0.2.5">0.2.5</a> - 2026-07-31</h2>
+
 <ul>
-  <li>Generated YARD title metadata normalization now replaces only the generated<br>
-<code>Documentation by YARD ...</code> text when it appears inline with real HTML markup,<br>
-preventing <code>_index.html</code> content wrapper deletion during docs regeneration.</li>
+  <li>TAG: <a href="https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.5">v0.2.5</a>
+</li>
+  <li>COVERAGE: 95.52% – 128/134 lines in 3 files</li>
+  <li>BRANCH COVERAGE: 87.93% – 51/58 branches in 3 files</li>
+  <li>20.59% documented</li>
 </ul>
 
-<h3 id="security">Security</h3>
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>
+    <p>Documentation linting now has its generated <code>yard-lint</code> dependency and severity config available in the local bundle.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260726-001 - Projects now include YARD lint<br>
+configuration and documentation dependencies so documentation issues fail<br>
+before generated docs are refreshed.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260727-001 - Spec harness documentation now lists the<br>
+RSpec helpers provided by <code>kettle-test</code>.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260729-005 - Gemspec metadata now publishes this<br>
+project’s RubyForum tag as <code>mailing_list_uri</code>, and support docs link to the<br>
+tagged RubyForum community alongside Discord.</p>
+  </li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>kettle-jem-template-20260716-001 - Shim gemspec manifests now include<br>
+<code>LICENSE.md</code> instead of nonexistent <code>LICENSE.txt</code>.</li>
+  <li>kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer<br>
+repository-only files by default to reduce downstream distro packaging churn.</li>
+  <li>kettle-jem-template-20260720-001 - Generated READMEs can now render<br>
+template-managed corporate sponsor logos from project or family config.</li>
+  <li>kettle-jem-template-20260720-002 - Generated development Gemfiles now use the<br>
+released <code>tree_sitter_language_pack</code> gem 1.13.3 or newer by default.</li>
+  <li>kettle-jem-template-20260720-003 - Generated StructuredMerge Git diff driver<br>
+config now uses the installed <code>smorg-rb</code> Ruby driver name.</li>
+  <li>kettle-jem-template-20260720-004 - Generated multi-engine workflow files now<br>
+omit JRuby and TruffleRuby jobs when project config declares MRI-only engines.</li>
+  <li>kettle-jem-template-20260720-005 - Generated README Support &amp; Community rows<br>
+now include a RubyForum help badge.</li>
+  <li>
+    <p>kettle-jem-template-20260725-001 - Generated JRuby and TruffleRuby workflow<br>
+files now run when pull request head branches start with <code>feature/release</code>,<br>
+so release CI monitoring does not report intentionally skipped engine<br>
+workflows as failures.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260725-002 - Generated gemspec templates now include<br>
+<code>anonymous_loader</code> as a development dependency, and version specs use it to<br>
+execute generated <code>version.rb</code> files for coverage without redefining package<br>
+constants. Managed version specs are removed when <code>version_gem</code> is disabled<br>
+or incompatible with the project’s runtime Ruby floor.</p>
+  </li>
+  <li>kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer<br>
+setup-ruby-flash planning and can prepare appraisal-only jobs without<br>
+installing the main Gemfile bundle.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>
+    <p>Generated YARD title metadata normalization now replaces only the generated<br>
+<code>Documentation by YARD ...</code> text when it appears inline with real HTML markup,<br>
+preventing <code>_index.html</code> content wrapper deletion during docs regeneration.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260726-002 - Generated version files now document their<br>
+version namespace and constants, reducing warning-only YARD lint output.</p>
+  </li>
+  <li>kettle-jem-template-20260726-003 - Coverage upload steps now treat Coveralls,<br>
+QLTY, and Codecov as optional, so provider outages do not fail CI when local<br>
+coverage thresholds still pass.</li>
+  <li>kettle-jem-template-20260728-002 - Generated RuboCop configs now ignore the<br>
+same <code>gemfiles/vendor/bundle</code> tree as <code>.gitignore</code>, so vendored dependency<br>
+installs are not reported as project lint debt.</li>
+  <li>
+    <p>kettle-jem-template-20260728-003 - Generated dep-heads workflows now run<br>
+TruffleRuby jobs with current RubyGems and Bundler, avoiding setup failures<br>
+before the test suite starts.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260728-004 - Generated dep-heads workflows now use the<br>
+setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv<br>
+lockfile parser failures on Git and path dependencies.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the<br>
+missing canonical version spec when a project only has shim namespace version<br>
+specs.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the<br>
+legacy manual bundle install path, avoiding setup-time Bundler full-index<br>
+failures against <code>gem.coop</code>.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260729-002 - VersionGem bootstrap now preserves<br>
+and templates dedicated <code>version_gem.rb</code> entrypoints even when the gemspec<br>
+dependency is intentionally omitted, and generated anonymous-loader specs<br>
+cover both <code>version.rb</code> and <code>version_gem.rb</code>.</p>
+  </li>
+  <li>kettle-jem-template-20260729-003 - Old-Ruby gems below the VersionGem runtime<br>
+floor now get managed minimal <code>version.rb</code> files and anonymous-loader version<br>
+specs without adding <code>version_gem</code>.</li>
+  <li>kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs<br>
+relative to the gemspec directory, so packaged template assets are included<br>
+even when the gemspec is loaded from another working directory.</li>
+</ul>
 
 <h2 id="024---2026-07-18">
 <a href="https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.3...v0.2.4">0.2.4</a> - 2026-07-18</h2>
@@ -101,7 +215,7 @@ preventing <code>_index.html</code> content wrapper deletion during docs regener
   <li>15.62% documented</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Restored generated YARD title/header metadata from git when rebuilding docs<br>
@@ -120,7 +234,7 @@ changes that should be preserved.</li>
   <li>20.83% documented</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>Package configured license files in gem release file lists.</li>
@@ -137,13 +251,13 @@ changes that should be preserved.</li>
   <li>20.83% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>Added support for JRuby 10.1 and TruffleRuby 34.0.</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>Retemplated project metadata and CI/development automation with <code>kettle-jem</code> v7.0.0.</li>
@@ -160,7 +274,7 @@ changes that should be preserved.</li>
   <li>20.83% documented</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Treated YARD generator version and Ruby version footer changes as generated<br>
@@ -179,7 +293,7 @@ toolchain version changes.</li>
   <li>15.00% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>Added generated CI coverage for <code>rdoc</code> <code>~&gt; 6.11</code> and <code>&gt;= 7.0</code>.</li>
@@ -189,7 +303,7 @@ template metadata under <code>.structuredmerge/</code>.</li>
   <li>Added generated documentation pages for IRP and YAML citation metadata.</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>Refreshed generated CI workflows, including coverage report verification,<br>
@@ -213,7 +327,7 @@ generated local override Gemfiles.</li>
 CI.</li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>Pinned the auto-assign workflow action to the immutable v4 SHA.</li>
@@ -230,7 +344,7 @@ CI.</li>
   <li>15.00% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Initial release</li>
