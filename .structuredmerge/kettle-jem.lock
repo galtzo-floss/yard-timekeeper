@@ -580,14 +580,14 @@ files:
     recipe: template_source_application_Appraisal_root_gemfile
     action: write
     dest_sha256: 8724e3f6faea995be655ac49369bec64a70710112b1f65707fa38f1fd2fd3254
-    input_fingerprint: 8c2747d96bf0de6ddccc3277004002f089260cc1ea318481e3c81703d7561f5d
+    input_fingerprint: c58cea3d570af8d3a5e537d2eff6e618090aaefdd40b24d7537e4c411616f76d
     template_sources:
     - Appraisal.root.gemfile.example
   Appraisals:
     recipe: template_source_application_Appraisals
     action: write
     dest_sha256: 051f898e1a3c983ef3bb43927b17e38cddaf2ad062d90ff46281caa980b08a5a
-    input_fingerprint: f366cf8b52000177a3a146f702b8745e0fa34fed765afaa4a45a9c7480933f1b
+    input_fingerprint: 9d2eb0f3a366ba279762816df1f8eda29c838cca70343af2a4e53c129ae53050
     template_sources:
     - Appraisals.example
   CHANGELOG.md:
@@ -1007,7 +1007,7 @@ files:
     recipe: template_source_application_spec_spec_helper_rb
     action: write
     dest_sha256: 51a6a42efe758927256dc927112cfcf420a9efdb2dbf644664cfb2424940f7e4
-    input_fingerprint: e30629aa2c070bedccb7a8b55516844beea7628a58fc1eb66bce0aac47f4311a
+    input_fingerprint: beb892febde12f91a854ea34ccca96f5c91c40e041c6a7d7c6d0458e5c3db55a
     template_sources:
     - spec/spec_helper.rb.example
   yard-timekeeper.gemspec:
