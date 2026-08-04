@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "open3"
+require "version_gem"
 require_relative "timekeeper/version"
 
 module Yard
@@ -241,3 +242,7 @@ end
 # Rake integration is explicit. Call Yard::Timekeeper.install_rake_tasks! from
 # your Rakefile after defining the :yard task so postprocess only runs for
 # documentation builds, never for unrelated processes that happen to load YARD.
+
+Yard::Timekeeper::Version.class_eval do
+  extend VersionGem::Basic
+end

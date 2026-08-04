@@ -139,7 +139,7 @@ rubygems:
   # disabled  - do not depend on version_gem or generate VersionGem entrypoints.
   #             Ruby floors below 2.2 use this effective behavior.
   # ENV override: KJ_VERSION_GEM_ENTRYPOINT
-  version_gem_entrypoint: auto
+  version_gem_entrypoint: inline
 # Repository URL topology.
 # This is independent from templates.profile. A gem may use the full template
 # while still living as a sub-project inside a monorepo.
