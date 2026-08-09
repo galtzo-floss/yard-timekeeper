@@ -22,12 +22,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
-  use ClickGems instead of BestGems.
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.6] - 2026-08-09
+
+- TAG: [v0.2.6][0.2.6t]
+- COVERAGE: 96.38% -- 133/138 lines in 3 files
+- BRANCH COVERAGE: 87.93% -- 51/58 branches in 3 files
+- 20.59% documented
+
+### Changed
+
+- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
+  use ClickGems instead of BestGems.
 
 ### Fixed
 
@@ -45,8 +58,6 @@ Please file a bug if you notice a violation of semantic versioning.
   preserving comments and trailing commas during template updates.
 
 - Load the version namespace from the public yard/timekeeper entrypoint
-
-### Security
 
 ## [0.2.5] - 2026-07-31
 
@@ -224,7 +235,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.6...HEAD
+[0.2.6]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.5...v0.2.6
+[0.2.6t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.6
 [0.2.5]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...v0.2.5
 [0.2.5t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.5
 [0.2.4]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.3...v0.2.4
