@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.7] - 2026-09-11
+
+- TAG: [v0.2.7][0.2.7t]
+- COVERAGE: 96.38% -- 133/138 lines in 3 files
+- BRANCH COVERAGE: 87.93% -- 51/58 branches in 3 files
+- 20.59% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 8 project files:
   - dependencies (8)
 
@@ -30,14 +47,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (2)
   - other (1)
   - workflows (1)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.2.6] - 2026-08-09
 
@@ -244,7 +253,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.7...HEAD
+[0.2.7]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.6...v0.2.7
+[0.2.7t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.7
 [0.2.6]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.5...v0.2.6
 [0.2.6t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.6
 [0.2.5]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.4...v0.2.5
