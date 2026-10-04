@@ -1,4 +1,13 @@
 {
+  "- other (1)\n- workflows (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        31,
+        100
+      ]
+    }
+  ],
   "exec_cmd: \"kettle-test\"\nrubygems: latest": [
     {
       "file": ".github/workflows/current.yml",
