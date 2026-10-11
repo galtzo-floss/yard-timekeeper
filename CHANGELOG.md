@@ -37,6 +37,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- postprocess_html_docs now diffs the docs dir relative to the git root: in a monorepo the member docs live nested (e.g. gems/foo/docs) while git commands run at the repository root, so the bare docs pathspec matched nothing and timestamp-only churn in member docs was never restored; standalone repos are unchanged (docs at root still maps to docs)
+
 ### Security
 
 ## [0.2.9] - 2026-10-01

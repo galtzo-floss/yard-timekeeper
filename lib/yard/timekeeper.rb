@@ -44,7 +44,14 @@ module Yard
         root = git_root
         return unless root
 
-        changed_docs_files(root).each do |relative_path|
+        # In a monorepo the member's docs dir is nested (e.g. gems/foo/docs),
+        # while git commands run against the repository root. Diffing the bare
+        # path "docs" from the root would look at <root>/docs and find nothing,
+        # so timestamp churn in member docs would never be restored.
+        docs_path = root_relative_path(docs_dir, root)
+        return unless docs_path
+
+        changed_docs_files(root, docs_path).each do |relative_path|
           next unless relative_path.end_with?(".html")
           diff = git_diff(relative_path, root)
           if timestamp_only_diff?(diff)
@@ -93,13 +100,26 @@ module Yard
         nil
       end
 
-      def changed_docs_files(root)
-        stdout, status = Open3.capture2("git", "diff", "--name-only", "--relative", "--", "docs", chdir: root)
+      def changed_docs_files(root, docs_path = "docs")
+        stdout, status = Open3.capture2("git", "diff", "--name-only", "--relative", "--", docs_path, chdir: root)
         return [] unless status.success?
 
         stdout.lines.map(&:strip).reject(&:empty?)
       rescue Errno::ENOENT
         []
+      end
+
+      # Path of docs_dir relative to the git repository root, or nil when the
+      # docs dir is not inside the repository (git pathspecs must be
+      # root-relative here).
+      def root_relative_path(docs_dir, root)
+        expanded_docs = File.expand_path(docs_dir)
+        expanded_root = File.expand_path(root)
+        prefix = "#{expanded_root}/"
+        return "docs" if expanded_docs == expanded_root
+        return unless expanded_docs.start_with?(prefix)
+
+        expanded_docs.delete_prefix(prefix)
       end
 
       def git_diff(path, root)

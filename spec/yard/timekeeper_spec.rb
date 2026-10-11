@@ -245,7 +245,7 @@ RSpec.describe Yard::Timekeeper do
           git_root: dir,
           restore_file: true
         )
-        allow(described_class).to receive(:changed_docs_files).with(dir).and_return([
+        allow(described_class).to receive(:changed_docs_files).with(dir, "docs").and_return([
           "docs/index.html",
           "docs/file.README.html",
           "docs/style.css"
@@ -270,6 +270,33 @@ RSpec.describe Yard::Timekeeper do
         expect(described_class).to have_received(:normalize_generated_metadata).with("docs/file.README.html", dir)
         expect(described_class).not_to have_received(:restore_file).with("docs/file.README.html", dir)
         expect(described_class).not_to have_received(:restore_file).with("docs/style.css", dir)
+      end
+    end
+
+    it "scopes the docs diff to the member subdirectory when run from a monorepo member" do
+      Dir.mktmpdir do |root|
+        member = File.join(root, "gems", "tree_haver")
+        FileUtils.mkdir_p(File.join(member, "docs"))
+        allow(Dir).to receive(:pwd).and_return(member)
+
+        allow(described_class).to receive_messages(
+          git_root: root,
+          restore_file: true
+        )
+        allow(described_class).to receive(:changed_docs_files)
+          .with(root, "gems/tree_haver/docs")
+          .and_return(["gems/tree_haver/docs/index.html"])
+        allow(described_class).to receive(:git_diff)
+          .with("gems/tree_haver/docs/index.html", root)
+          .and_return(<<~DIFF)
+            @@ -1166 +1166 @@
+            -  Generated on Sat Apr 11 01:22:58 2026 by
+            +  Generated on Sat Apr 11 01:23:17 2026 by
+          DIFF
+
+        described_class.postprocess_html_docs
+
+        expect(described_class).to have_received(:restore_file).with("gems/tree_haver/docs/index.html", root)
       end
     end
 
