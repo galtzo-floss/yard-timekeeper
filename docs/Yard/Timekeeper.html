@@ -251,7 +251,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#changed_docs_files-class_method" title="changed_docs_files (class method)">.<strong>changed_docs_files</strong>(root)  &#x21d2; Object </a>
+      <a href="#changed_docs_files-class_method" title="changed_docs_files (class method)">.<strong>changed_docs_files</strong>(root, docs_path = &quot;docs&quot;)  &#x21d2; Object </a>
     
 
     
@@ -573,6 +573,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#root_relative_path-class_method" title="root_relative_path (class method)">.<strong>root_relative_path</strong>(docs_dir, root)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Path of docs_dir relative to the git repository root, or nil when the docs dir is not inside the repository (git pathspecs must be root-relative here).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#run_at_exit-class_method" title="run_at_exit (class method)">.<strong>run_at_exit</strong>  &#x21d2; Object </a>
     
 
@@ -664,13 +687,13 @@
       <pre class="lines">
 
 
-78
-79
-80
-81</pre>
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid___reset_rake_integrations__'>__reset_rake_integrations__</span>
   <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS_MUTEX-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS_MUTEX (constant)">RAKE_INTEGRATIONS_MUTEX</a></span></span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="#RAKE_INTEGRATIONS-constant" title="Yard::Timekeeper::RAKE_INTEGRATIONS (constant)">RAKE_INTEGRATIONS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span> <span class='rbrace'>}</span>
@@ -719,18 +742,18 @@
       <pre class="lines">
 
 
-142
-143
-144
-145
-146
-147
-148
-149
-150</pre>
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_balanced_footer_churn?'>balanced_footer_churn?</span><span class='lparen'>(</span><span class='id identifier rubyid_change_lines'>change_lines</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_removed_lines'>removed_lines</span> <span class='op'>=</span> <span class='id identifier rubyid_change_lines'>change_lines</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -749,7 +772,7 @@
       <div class="method_details ">
   <h3 class="signature " id="changed_docs_files-class_method">
   
-    .<strong>changed_docs_files</strong>(root)  &#x21d2; <tt>Object</tt> 
+    .<strong>changed_docs_files</strong>(root, docs_path = &quot;docs&quot;)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -761,20 +784,20 @@
       <pre class="lines">
 
 
-96
-97
-98
-99
-100
-101
-102
-103</pre>
+103
+104
+105
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 103</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_changed_docs_files'>changed_docs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>diff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--name-only</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--relative</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>docs</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_changed_docs_files'>changed_docs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_docs_path'>docs_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>docs</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>diff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--name-only</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--relative</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_docs_path'>docs_path</span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
 
   <span class='id identifier rubyid_stdout'>stdout</span><span class='period'>.</span><span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:strip</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:empty?</span><span class='rparen'>)</span>
@@ -824,12 +847,12 @@
       <pre class="lines">
 
 
-83
-84
-85</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enabled?'>enabled?</span>
   <span class='op'>!</span><span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>YARD_TIMEKEEPER_DISABLE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>false</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>true</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -854,16 +877,16 @@
       <pre class="lines">
 
 
-152
-153
-154
-155
-156
-157
-158</pre>
+172
+173
+174
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_footer_churn_kind'>footer_churn_kind</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='symbol'>:title_generator</span> <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#TITLE_GENERATOR_DIFF_LINE_RE-constant" title="Yard::Timekeeper::TITLE_GENERATOR_DIFF_LINE_RE (constant)">TITLE_GENERATOR_DIFF_LINE_RE</a></span></span><span class='rparen'>)</span>
@@ -915,14 +938,14 @@
       <pre class="lines">
 
 
-136
-137
-138
-139
-140</pre>
+156
+157
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_footer_churn_line?'>footer_churn_line?</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#TITLE_GENERATOR_DIFF_LINE_RE-constant" title="Yard::Timekeeper::TITLE_GENERATOR_DIFF_LINE_RE (constant)">TITLE_GENERATOR_DIFF_LINE_RE</a></span></span><span class='rparen'>)</span> <span class='op'>||</span>
@@ -949,17 +972,17 @@
       <pre class="lines">
 
 
-224
-225
-226
-227
-228
-229
-230
-231</pre>
+244
+245
+246
+247
+248
+249
+250
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 224</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generated_metadata_kind'>generated_metadata_kind</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stripped_line'>stripped_line</span> <span class='op'>=</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
@@ -989,15 +1012,15 @@
       <pre class="lines">
 
 
-199
-200
-201
-202
-203
-204</pre>
+219
+220
+221
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 219</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generated_metadata_lines'>generated_metadata_lines</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='comma'>,</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='op'>|</span>
@@ -1025,17 +1048,17 @@
       <pre class="lines">
 
 
-206
-207
-208
-209
-210
-211
-212
-213</pre>
+226
+227
+228
+229
+230
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generated_metadata_value'>generated_metadata_value</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='comma'>,</span> <span class='id identifier rubyid_kind'>kind</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_kind'>kind</span>
@@ -1065,22 +1088,22 @@
       <pre class="lines">
 
 
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117</pre>
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git_diff'>git_diff</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid__status'>_status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span>
@@ -1115,17 +1138,17 @@
       <pre class="lines">
 
 
-87
-88
-89
-90
-91
-92
-93
-94</pre>
+94
+95
+96
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git_root'>git_root</span>
   <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rev-parse</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--show-toplevel</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
@@ -1155,22 +1178,22 @@
       <pre class="lines">
 
 
-64
-65
-66
-67
-68
-69
-70
 71
 72
 73
 74
 75
-76</pre>
+76
+77
+78
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_install_rake_tasks!'>install_rake_tasks!</span><span class='lparen'>(</span><span class='id identifier rubyid_yard_task_name'>yard_task_name</span> <span class='op'>=</span> <span class='symbol'>:yard</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='period'>.</span><span class='id identifier rubyid_task_defined?'>task_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_yard_task_name'>yard_task_name</span><span class='rparen'>)</span>
@@ -1205,26 +1228,6 @@
       <pre class="lines">
 
 
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
 180
 181
 182
@@ -1233,10 +1236,30 @@
 185
 186
 187
-188</pre>
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_normalize_generated_metadata'>normalize_generated_metadata</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_original'>original</span> <span class='op'>=</span> <span class='id identifier rubyid_tracked_file_content'>tracked_file_content</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
@@ -1287,17 +1310,17 @@
       <pre class="lines">
 
 
-215
-216
-217
-218
-219
-220
-221
-222</pre>
+235
+236
+237
+238
+239
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_normalize_generated_metadata_line'>normalize_generated_metadata_line</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='comma'>,</span> <span class='id identifier rubyid_kind'>kind</span><span class='comma'>,</span> <span class='id identifier rubyid_replacement'>replacement</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_kind'>kind</span>
@@ -1347,7 +1370,14 @@
 55
 56
 57
-58</pre>
+58
+59
+60
+61
+62
+63
+64
+65</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 38</span>
@@ -1361,7 +1391,14 @@
   <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_git_root'>git_root</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span>
 
-  <span class='id identifier rubyid_changed_docs_files'>changed_docs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='op'>|</span>
+  <span class='comment'># In a monorepo the member&#39;s docs dir is nested (e.g. gems/foo/docs),
+</span>  <span class='comment'># while git commands run against the repository root. Diffing the bare
+</span>  <span class='comment'># path &quot;docs&quot; from the root would look at &lt;root&gt;/docs and find nothing,
+</span>  <span class='comment'># so timestamp churn in member docs would never be restored.
+</span>  <span class='id identifier rubyid_docs_path'>docs_path</span> <span class='op'>=</span> <span class='id identifier rubyid_root_relative_path'>root_relative_path</span><span class='lparen'>(</span><span class='id identifier rubyid_docs_dir'>docs_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docs_path'>docs_path</span>
+
+  <span class='id identifier rubyid_changed_docs_files'>changed_docs_files</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_docs_path'>docs_path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_relative_path'>relative_path</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.html</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_diff'>diff</span> <span class='op'>=</span> <span class='id identifier rubyid_git_diff'>git_diff</span><span class='lparen'>(</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_timestamp_only_diff?'>timestamp_only_diff?</span><span class='lparen'>(</span><span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
@@ -1393,21 +1430,75 @@
       <pre class="lines">
 
 
-233
-234
-235
-236
-237
-238</pre>
+253
+254
+255
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 233</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 253</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restore_file'>restore_file</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid__stdout'>_stdout</span><span class='comma'>,</span> <span class='id identifier rubyid__stderr'>_stderr</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>checkout</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
 <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
   <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="root_relative_path-class_method">
+  
+    .<strong>root_relative_path</strong>(docs_dir, root)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Path of docs_dir relative to the git repository root, or nil when the<br />
+docs dir is not inside the repository (git pathspecs must be<br />
+root-relative here).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_root_relative_path'>root_relative_path</span><span class='lparen'>(</span><span class='id identifier rubyid_docs_dir'>docs_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expanded_docs'>expanded_docs</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_docs_dir'>docs_dir</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expanded_root'>expanded_root</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expanded_root'>expanded_root</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>docs</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_expanded_docs'>expanded_docs</span> <span class='op'>==</span> <span class='id identifier rubyid_expanded_root'>expanded_root</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_expanded_docs'>expanded_docs</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_expanded_docs'>expanded_docs</span><span class='period'>.</span><span class='id identifier rubyid_delete_prefix'>delete_prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1429,12 +1520,12 @@
       <pre class="lines">
 
 
-60
-61
-62</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_at_exit'>run_at_exit</span>
   <span class='id identifier rubyid_postprocess_html_docs'>postprocess_html_docs</span>
@@ -1482,25 +1573,25 @@
       <pre class="lines">
 
 
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timestamp_only_diff?'>timestamp_only_diff?</span><span class='lparen'>(</span><span class='id identifier rubyid_diff_text'>diff_text</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_diff_text'>diff_text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -1538,17 +1629,17 @@
       <pre class="lines">
 
 
-190
-191
-192
-193
-194
-195
-196
-197</pre>
+210
+211
+212
+213
+214
+215
+216
+217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'lib/yard/timekeeper.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tracked_file_content'>tracked_file_content</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture2'>capture2</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HEAD:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>chdir:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span>

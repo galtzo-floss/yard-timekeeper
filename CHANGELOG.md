@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.10] - 2026-10-11
+
+- TAG: [v0.2.10][0.2.10t]
+- COVERAGE: 96.60% -- 142/147 lines in 3 files
+- BRANCH COVERAGE: 84.38% -- 54/64 branches in 3 files
+- 22.86% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 11 project files:
   - configuration (1)
   - dependencies (10)
@@ -32,15 +49,9 @@ Please file a bug if you notice a violation of semantic versioning.
   - other (1)
   - workflows (4)
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - postprocess_html_docs now diffs the docs dir relative to the git root: in a monorepo the member docs live nested (e.g. gems/foo/docs) while git commands run at the repository root, so the bare docs pathspec matched nothing and timestamp-only churn in member docs was never restored; standalone repos are unchanged (docs at root still maps to docs)
-
-### Security
 
 ## [0.2.9] - 2026-10-01
 
@@ -308,7 +319,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.9...HEAD
+[Unreleased]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.10...HEAD
+[0.2.10]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.9...v0.2.10
+[0.2.10t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.10
 [0.2.9]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.8...v0.2.9
 [0.2.9t]: https://github.com/galtzo-floss/yard-timekeeper/releases/tag/v0.2.9
 [0.2.8]: https://github.com/galtzo-floss/yard-timekeeper/compare/v0.2.7...v0.2.8
