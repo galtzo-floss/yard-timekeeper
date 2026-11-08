@@ -1,13 +1,4 @@
 {
-  "- [kc] kettle-jem/template: updated 25 project files:\n- code and tests (2)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        28,
-        101
-      ]
-    }
-  ],
   "- ruby: \"ruby\"\nappraisal: \"current\"": [
     {
       "file": ".github/workflows/current.yml",
@@ -32,6 +23,24 @@
       "lines": [
         44,
         50
+      ]
+    }
+  ],
+  "out != \"\" { print > out }\n' \"$bundle\"": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        95,
+        124
+      ]
+    }
+  ],
+  "subject=\"$(openssl x509 -in \"$file\" -noout -subject 2>/dev/null || true)\"\nif [ -n \"$subject\" ] && matches \"$subject\"; then": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        103,
+        127
       ]
     }
   ]
