@@ -1,4 +1,22 @@
 {
+  "- [kc] kettle-jem/template: updated 2 project files:\n- code and tests (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        28,
+        75
+      ]
+    }
+  ],
+  "- code and tests (1)\n- other (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        29,
+        76
+      ]
+    }
+  ],
   "- ruby: \"ruby\"\nappraisal: \"current\"": [
     {
       "file": ".github/workflows/current.yml",
