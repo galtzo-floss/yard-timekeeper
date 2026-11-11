@@ -4,7 +4,7 @@
       "file": "CHANGELOG.md",
       "lines": [
         25,
-        74
+        75
       ]
     }
   ],
@@ -13,15 +13,6 @@
       "file": "CHANGELOG.md",
       "lines": [
         29,
-        121
-      ]
-    }
-  ],
-  "- dependencies (2)\n- other (1)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        30,
         122
       ]
     }
